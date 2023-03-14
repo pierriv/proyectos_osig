@@ -1,0 +1,9 @@
+@import url("./theme.css");
+
+footer{
+    background-color: var(--color-blue-primary);
+    color: white;
+    padding: 35px 20px;
+    /* margin-top: 20px; */
+    text-align: center;
+}

@@ -1,0 +1,23 @@
+/* BANNER STYLE */
+
+.banner-head{
+    width: 100%;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* filter: blur(3px); */
+    /* background-color: var(--color-yellow-primary); */
+    background-blend-mode: multiply;
+    position: relative;
+}
+
+
+.banner-head .title-banner-head{
+    padding-top: 120px;
+    padding-bottom: 120px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    text-align: center;
+}

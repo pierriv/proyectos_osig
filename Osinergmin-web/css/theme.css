@@ -1,0 +1,16 @@
+:root {
+    /* GAMA AZUL */
+    --color-blue-primary: #000090;
+    --color-blue-secondary: #33a3dc;
+    --color-blue-tertiary: #5c74b8;
+    --color-blue-extra: #8ed8f8;
+
+    /* GAMA AMARILLO */
+    --color-yellow-primary: #f37032;
+    --color-yellow-secondary: #fed13a;
+    --color-yellow-tertiary: #ffdf4f;
+    --color-yellow-extra: #ffedb3;
+
+    /* BOTON ICONO NAV */
+    --color-orange-primary: #ed8c00;
+}

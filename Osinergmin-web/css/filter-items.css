@@ -1,0 +1,61 @@
+.filter-buttons-container{
+    border-bottom: 3px solid var(--color-blue-primary);
+    display: flex;
+    flex-grow: 1;
+    grid-gap: 5px;
+    justify-content: stretch;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.filter-buttons-container .btn-filter{
+    background-color: transparent;
+    border: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 15px;
+}
+
+.filter-buttons-container > .btn-filter.active{
+    background-color: var(--color-blue-primary);
+    color: white;
+}
+
+.filter-buttons-container .btn-filter:hover{
+    background-color: var(--color-blue-primary);
+    color: white;
+}
+
+.filter-container .hidden{
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+.filter-container > div{
+    position: relative;    
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.filter-container > div > a:hover::after{
+    content: "Ver";
+    color: white;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(243, 112, 50, 0.8);
+    font-weight: 900;
+    font-size: 1.5rem;
+}

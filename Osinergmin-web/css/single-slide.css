@@ -1,0 +1,64 @@
+.slide-container {
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* gap: 12px; */
+    scroll-padding: 10px;
+
+}
+
+.slide-container:hover > :not(:hover) {
+    opacity: .4;
+}
+
+.slide-container>.item-slide {
+    flex: 0 0 50%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 5px;
+}
+
+.slide-container[num-items="1"]>.item-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 5px;
+}
+
+.slide-container[num-items="2"]>.item-slide {
+    flex: 0 0 50%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 5px;
+}
+
+.slide-container[num-items="3"]>.item-slide {
+    flex: 0 0 33.33%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 5px;
+}
+
+.slide-container[num-items="4"]>.item-slide {
+    flex: 0 0 25%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 5px;
+}
+
+.slide-container[num-items="5"]>.item-slide {
+    flex: 0 0 20%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 5px;
+}
+
+.slide-container[num-items="6"]>.item-slide {
+    flex: 0 0 16.66%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 5px;
+}
+

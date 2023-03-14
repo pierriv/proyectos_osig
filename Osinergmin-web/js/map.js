@@ -15,7 +15,9 @@ require([
     "esri/widgets/BasemapGallery",
     "esri/widgets/Editor",
 	  "esri/widgets/Search",
-	  "esri/widgets/Home"
+	  "esri/widgets/Home",
+    "esri/widgets/LayerList",
+    "esri/layers/MapImageLayer"
     ], (
         urlUtils,
         Map,
@@ -29,32 +31,17 @@ require([
         BasemapGallery, 
         Editor,
 		    Search,
-		    Home
+		    Home,
+        LayerList,
+        MapImageLayer
         ) => {
         
         //_proxyurl = "https://gisem.osinergmin.gob.pe/proxy_developer/proxy.ashx";
         _proxyurl = "";
         $(document).ready(function(){          
-          var user = localStorage.getItem("user");
-          var region = localStorage.getItem("region");
-          var rol = localStorage.getItem("rol");
-          if (user == null || user == ""){
-            localStorage.setItem('user', '');
-            localStorage.setItem('region', '');
-            localStorage.setItem('rol', '');
-            window.location.href = "login.html";
-            return
-          }
 
-          var url_department = "https://services5.arcgis.com/oAvs2fapEemUpOTy/ArcGIS/rest/services/ResultadosXY2LVGLP/FeatureServer/0";
-          var url_province = "https://services5.arcgis.com/oAvs2fapEemUpOTy/ArcGIS/rest/services/ResultadosXY2LVGLP/FeatureServer/4";
-          var url_distrito = "https://services5.arcgis.com/oAvs2fapEemUpOTy/ArcGIS/rest/services/ResultadosXY2LVGLP/FeatureServer/1";
+          var url_informales = "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/ELECTRICIDAD/MapServer";
           
-          var url_informales = "https://services5.arcgis.com/oAvs2fapEemUpOTy/ArcGIS/rest/services/survey123_76549cfdea5d4828978ba44f3adfa2d8_stakeholder/FeatureServer/0";
-          var urlOficinasRegionales = "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Transversal/Oficinas_Regionales/MapServer/0";
-
-          
-          let editor, features;
           map = new Map({
               basemap: "osm"
           });
@@ -63,7 +50,7 @@ require([
               container: "map",
               map: map,
               center: [-74.049, -8.185],
-              zoom: 5
+              zoom: 6
           });
           let basemapGallery = new BasemapGallery({
               view: view
@@ -83,44 +70,45 @@ require([
               expanded: false,
               expandTooltip: 'Mapas Base'
           });
-          view.ui.add(MeExpand, 'top-left');            
 			
           var homeWidget = new Home({
             view: view
           });
 
-          view.ui.add(homeWidget, "top-left");
+          let layerList = new LayerList({
+            view: view
+          });
+
+          const MeExpandLayer = new Expand({
+            view: view,
+            content: layerList,
+            expanded: false,
+            expandTooltip: 'Capas'
+          });         
           
           const searchWidget = new Search({
             view: view
           });
-          // Adds the search widget below other elements in
-          // the top left corner of the view
-          view.ui.add(searchWidget, {
-            position: "top-right",
-            index: 2
-          });
-		
-            
-          
 
-          const featureLayer = new FeatureLayer({
-              url: url_informales,
-              outFields: ["*"]
-          });
+          view.ui.add(searchWidget, { position: "top-right", index: 2 });
+          view.ui.add(homeWidget, "top-right");
+          view.ui.add(MeExpand, 'top-right');  
+          view.ui.add(MeExpandLayer, { position: "top-right"});
 
-          map.add(featureLayer);
-          featureLayer.queryFeatures().then(data => {
-            //writeElementTotal(data.features);
-            //writeDataChart(data.features);
-            //writeDataChartMonth(data.features);
+          //const featureLayer = new FeatureLayer({
+          //    url: url_informales,
+          //    outFields: ["*"]
+          //});
+
+
+          const layer = new MapImageLayer({
+            url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/ELECTRICIDAD/MapServer"
           });
 
-          $("#map").css("height", "800px");
 
-          
-	
-		
+          //map.add(featureLayer);
+          map.add(layer);
+          $("#map").css("height", "900px");
 
         });
     });

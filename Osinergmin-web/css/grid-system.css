@@ -228,3 +228,11 @@
     grid-row:span 4;
 }
 
+.rows-5{
+    grid-row:span 5;
+}
+
+.rows-6{
+    grid-row:span 6;
+}
+

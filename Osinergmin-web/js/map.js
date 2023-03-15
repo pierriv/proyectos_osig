@@ -108,7 +108,7 @@ require([
 
           //map.add(featureLayer);
           map.add(layer);
-          $("#map").css("height", "900px");
+          $("#map").css("height", "100%");
 
         });
     });

@@ -149,14 +149,17 @@ a {
 
 .border-rounded-sm {
     border-radius: 8px;
+    overflow: hidden;
 }
 
 .border-rounded-md {
     border-radius: 15px;
+    overflow: hidden;
 }
 
 .border-rounded-lg {
     border-radius: 25px;
+    overflow: hidden;
 }
 
 /* FIN BORDER STYLES */
@@ -368,6 +371,7 @@ header .header-logo {
 
 .breadcrumb-container {
     background-color: transparent;
+    padding-left: 0px !important;
     width: 100% !important;
     margin-left: -8px;
 }
@@ -719,16 +723,28 @@ header .header-logo {
 
 /* TARGETS */
 
+
 .target-tooltip{
     background-color: white;
     border-radius: 8px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+    cursor: pointer;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -20px);
+    top: 100%;
+    left: 20%;
+    transform: translate(-50%, -7px);
     width: 250px;
     overflow: hidden;
-    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 99;
+}
+
+.tooltip-container:hover .target-tooltip{
+    left: 50%;
+    visibility: inherit;
+    opacity: 1;
 }
 
 .target-tooltip > img{
@@ -751,7 +767,7 @@ header .header-logo {
 
 .target-stadistic > div > img{
     width: 100%;
-    aspect-ratio: 2/1.2;
+    aspect-ratio: 2/1;
     /* object-fit: cover; */
 }
 

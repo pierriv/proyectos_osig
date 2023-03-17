@@ -52,6 +52,8 @@
 
 .modal > .form-modal > .header-modal{
     border-bottom: 1px solid rgba(0,0,0,0.1);
+    color: var(--color-blue-secondary);
+    font-weight: bold;
     padding-top: 5px;
     padding-bottom: 15px;
     margin-bottom: 20px;
@@ -67,8 +69,16 @@
     justify-content: right;
 }
 
+
+
+
+
 .modal-sm{
     max-width: 300px;
+}
+
+.modal-md{
+    max-width: 640px;
 }
 
 .modal-lg{

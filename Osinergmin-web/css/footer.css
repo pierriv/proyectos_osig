@@ -1,7 +1,7 @@
 @import url("./theme.css");
 
 footer{
-    background-color: var(--color-blue-primary);
+    background-color: var(--color-blue-secondary);
     color: white;
     padding: 35px 20px;
     /* margin-top: 20px; */

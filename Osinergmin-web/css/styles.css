@@ -636,7 +636,9 @@ header .header-logo {
 
 .btn-slide {
     position: relative;
+    color: var(--color-blue-primary);
     cursor: pointer;
+    font-weight: bold;
     padding: 20px 15px;
     background-color: var(--color-yellow-secondary);
     border: 0;
@@ -741,7 +743,13 @@ header .header-logo {
     z-index: 99;
 }
 
-.tooltip-container:hover .target-tooltip{
+.tooltip-container:focus .target-tooltip{
+    left: 50%;
+    visibility: inherit;
+    opacity: 1;
+}
+
+.tooltip-container:focus-within .target-tooltip{
     left: 50%;
     visibility: inherit;
     opacity: 1;
@@ -753,12 +761,40 @@ header .header-logo {
 }
 
 .target-tooltip > div{
+    background-color: #8ed8f8;
+    color: var(--color-blue-tertiary);
+    margin-top: -5px;
     padding: 10px;
     text-align: left;
 }
 
 .target-tooltip > div > p{
+    margin-top: 10px;
     white-space: initial;
+}
+
+.target-tooltip > div > a > div{
+    color: white;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    background-color: var(--color-blue-tertiary);
+}
+
+.target-tooltip > div > a > div > span{
+    font-size: 0.8rem;
+    margin-left: 10px
+}
+
+.target-tooltip > div > a > div:hover{
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+    font-weight: bold;
 }
 
 .target-stadistic {
@@ -842,6 +878,7 @@ header .header-logo {
     .title-index{
         display: none !important;
     }
+
     .simple-target{
         aspect-ratio: 1.5/1;
     }

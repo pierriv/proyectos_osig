@@ -3,6 +3,13 @@ let isOffice = true;
 let codeUbigeo = "";
 
 function redirectRegion(region) {
+  if (view){
+    view.goTo({
+      center: region,
+      zoom: 7
+    });
+  }
+  console.log(view);
   console.log(region);
   codeUbigeo = region;
   $('#divContent').hide();
@@ -145,9 +152,24 @@ require([
       url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/ELECTRICIDAD/MapServer"
     });
 
+    const layer2 = new MapImageLayer({
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Gas_Natural/GAS_NATURAL/MapServer"
+    });
+
+    const layer3 = new MapImageLayer({
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Hidrocarburos_Liquidos/HIDROCARBUROS_LIQUIDOS/MapServer"
+    });
+
+    const layer4 = new MapImageLayer({
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Mineria/MINERIA_MEM/MapServer"
+    });
+
 
     //map.add(featureLayer);
     map.add(layer);
+    map.add(layer2);
+    map.add(layer3);
+    map.add(layer4);
     $("#map").css("height", "100%");
 
   });

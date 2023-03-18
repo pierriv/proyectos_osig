@@ -99,6 +99,7 @@ require([
       center: [-74.049, -8.185],
       zoom: 6
     });
+
     let basemapGallery = new BasemapGallery({
       view: view
     });
@@ -110,7 +111,7 @@ require([
     //    proxyUrl: _proxyurl
     //});
 
-
+    //Widget Mapas Base
     const MeExpand = new Expand({
       view: view,
       content: basemapGallery,
@@ -118,14 +119,15 @@ require([
       expandTooltip: 'Mapas Base'
     });
 
+    //Widget Home
     var homeWidget = new Home({
       view: view
     });
 
+    //Widget layerList
     let layerList = new LayerList({
       view: view
-    });
-
+    });    
     const MeExpandLayer = new Expand({
       view: view,
       content: layerList,
@@ -133,11 +135,20 @@ require([
       expandTooltip: 'Capas'
     });
 
+    //Widget searchWidget
     const searchWidget = new Search({
       view: view
     });
+    const MeExpandSearchWidget = new Expand({
+      view: view,
+      content: searchWidget,
+      expanded: false,
+      expandTooltip: 'Capas'
+    });
 
-    view.ui.add(searchWidget, { position: "top-right", index: 2 });
+    
+    view.ui.add(MeExpandSearchWidget, { position: "top-right", index: 2 })
+    //view.ui.add(searchWidget, { position: "top-right", index: 2 });
     view.ui.add(homeWidget, "top-right");
     view.ui.add(MeExpand, 'top-right');
     view.ui.add(MeExpandLayer, { position: "top-right" });

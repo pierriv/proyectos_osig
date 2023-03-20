@@ -1,7 +1,7 @@
 let map, view;
 let isOffice = true;
 let codeUbigeo = "";
-
+let where = "1=1";
 require([
     "esri/core/urlUtils",
     "esri/Map",
@@ -38,10 +38,16 @@ require([
         
         //_proxyurl = "https://gisem.osinergmin.gob.pe/proxy_developer/proxy.ashx";
         _proxyurl = "";
-        $(document).ready(function(){          
+        $(document).ready(function(){
 
-          var url_informales = "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/ELECTRICIDAD/MapServer";
-          
+          let urlparams= window.location.search;
+          _globalidor = urlparams.substring(1);
+          code = _globalidor.split('=')[1];
+          if (code){
+            console.log(code);
+            where = "CODDEPARTAMENTO='"+code+"'";
+          }
+ 
           map = new Map({
               basemap: "osm"
           });
@@ -95,20 +101,36 @@ require([
           view.ui.add(MeExpand, 'top-right');  
           view.ui.add(MeExpandLayer, { position: "top-right"});
 
-          //const featureLayer = new FeatureLayer({
-          //    url: url_informales,
-          //    outFields: ["*"]
-          //});
-
-
-          const layer = new MapImageLayer({
-            url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/ELECTRICIDAD/MapServer"
+          const featureLayer = new FeatureLayer({
+            url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Cartografia/LIMITE_DEPARTAMENTAL/MapServer/0",
+            outFields: ["*"],
+            definitionExpression: where
+          });
+      
+          const layer2 = new MapImageLayer({
+            url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/MapaSEIN_Operacion/MapServer"
+          });
+      
+          const layer3 = new MapImageLayer({
+            url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/MapaSEIN_Proyectadas/MapServer"
           });
 
 
-          //map.add(featureLayer);
-          map.add(layer);
+          map.add(featureLayer);
+          map.add(layer2);
+          map.add(layer3);
           $("#map").css("height", "100%");
+
+          featureLayer.queryFeatures().then(results => {
+            if (results.features.length > 0)
+              zoomToLayer2(results);
+          });
+
+
+          function zoomToLayer2(results, _zoom){
+            var sourceGraphics = results.features.map(e => { return e.geometry });
+            view.goTo(sourceGraphics);
+          }
 
         });
     });

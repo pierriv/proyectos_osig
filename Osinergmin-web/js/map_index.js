@@ -1,7 +1,7 @@
 let map, view;
 let isOffice = true;
 let codeUbigeo = "";
-
+let where = "1=1";
 function redirectRegion(region) {
   if (view){
     view.goTo({
@@ -153,34 +153,34 @@ require([
     view.ui.add(MeExpand, 'top-right');
     view.ui.add(MeExpandLayer, { position: "top-right" });
 
-    //const featureLayer = new FeatureLayer({
-    //    url: url_informales,
-    //    outFields: ["*"]
-    //});
-
-
-    const layer = new MapImageLayer({
-      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/ELECTRICIDAD/MapServer"
+    const featureLayer = new FeatureLayer({
+        url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Cartografia/LIMITE_DEPARTAMENTAL/MapServer/0",
+        outFields: ["*"],
+        //definitionExpression: where
     });
 
+    //const layer = new MapImageLayer({
+    //  url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Cartografia/LIMITE_DEPARTAMENTAL/MapServer"
+    //});
+
     const layer2 = new MapImageLayer({
-      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Gas_Natural/GAS_NATURAL/MapServer"
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/MapaSEIN_Operacion/MapServer"
     });
 
     const layer3 = new MapImageLayer({
-      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Hidrocarburos_Liquidos/HIDROCARBUROS_LIQUIDOS/MapServer"
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/MapaSEIN_Proyectadas/MapServer"
     });
 
-    const layer4 = new MapImageLayer({
-      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Mineria/MINERIA_MEM/MapServer"
-    });
+    //const layer4 = new MapImageLayer({
+    //  url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Mineria/MINERIA_MEM/MapServer"
+    //});
 
 
-    //map.add(featureLayer);
-    map.add(layer);
+    map.add(featureLayer);
+    //map.add(layer);
     map.add(layer2);
     map.add(layer3);
-    map.add(layer4);
+    //map.add(layer4);
     $("#map").css("height", "100%");
 
   });

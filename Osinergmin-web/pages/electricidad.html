@@ -87,6 +87,41 @@
                 <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2">
                     <h3 class="title-subsection">Información de plantas generadoras, líneas y subestaciones eléctricas
                     </h3>
+                    <div class="img-link shadow border-rounded-sm" style="aspect-ratio: 1/1.18;">
+                        <div id="map" style="height: 100% !important;"></div>
+                    </div>
+                </div>
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12">
+                    <h3 class="title-subsection">Información de los Usuarios regulados por zonas de concesión de
+                        distribuidoras</h3>
+                    <div class="img-link shadow border-rounded-sm">
+                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/60ca113c-d8ff-4c79-a06b-cc4b5667d283.png"
+                            alt="">
+                        <a href="">
+                            <button class="btn-icon">
+                                <img src="../images/icons/excel.png" alt="">
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-container align-start xlg-12 lg-12 md-12 sm-12">
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12">
+                    <h3 class="title-subsection">Porcentaje de Unidades de Alumbrado Público (UAP) Deficientes
+                        detectadas en los procedimientos de supervisión</h3>
+                    <div class="img-link shadow border-rounded-sm">
+                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/d0cb6817-d84b-487a-9eac-b8d1bec53536.png"
+                            alt="">
+                        <a href="">
+                            <button class="btn-icon">
+                                <img src="../images/icons/excel.png" alt="">
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2">
+                    <h3 class="title-subsection">Tarifas eléctricas del país
+                    </h3>
                     <div class="img-link"
                         style="aspect-ratio: 1/1.18; display: flex; justify-content: center; align-items: center;"
                         id="divContent">
@@ -168,7 +203,7 @@
 
                         </map>
                     </div>
-                    <div id="map" style="display: none; position: relative;aspect-ratio: 1/1.18;">
+                    <div id="iframeMap" style="display: none; position: relative;aspect-ratio: 1/1.18;">
                         <iframe id="iframe-electricidad"
                             src="https://www.osinergmin.gob.pe/Tarifas/Electricidad/PliegoTarifario?Id=160000"
                             frameborder="0" style="width: 100%; height: 100%;">
@@ -195,42 +230,6 @@
                     </div>
                 </div>
                 <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12">
-                    <h3 class="title-subsection">Información de los Usuarios regulados por zonas de concesión de
-                        distribuidoras</h3>
-                    <div class="img-link shadow border-rounded-sm">
-                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/60ca113c-d8ff-4c79-a06b-cc4b5667d283.png"
-                            alt="">
-                        <a href="">
-                            <button class="btn-icon">
-                                <img src="../images/icons/excel.png" alt="">
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="grid-container align-start xlg-12 lg-12 md-12 sm-12">
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12">
-                    <h3 class="title-subsection">Porcentaje de Unidades de Alumbrado Público (UAP) Deficientes
-                        detectadas en los procedimientos de supervisión</h3>
-                    <div class="img-link shadow border-rounded-sm">
-                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/d0cb6817-d84b-487a-9eac-b8d1bec53536.png"
-                            alt="">
-                        <a href="">
-                            <button class="btn-icon">
-                                <img src="../images/icons/excel.png" alt="">
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2">
-                    <h3 class="title-subsection">Tarifas eléctricas del país
-                    </h3>
-                    <div class="img-link shadow border-rounded-sm" style="aspect-ratio: 1/1.18;">
-                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/00570507-affb-428b-8cba-7f8a335402e0.png"
-                            style="object-fit: cover; height: 100%;">
-                    </div>
-                </div>
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12">
                     <h3 class="title-subsection">Evolución de la Generación y Máxima Demanda del SEIN</h3>
                     <div class="img-link shadow border-rounded-sm">
                         <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/172235f4-728f-4938-9c58-84e3ffb97dc9.png"
@@ -244,19 +243,6 @@
                 </div>
             </div>
             <div class="grid-container align-start xlg-12 lg-12 md-12 sm-12">
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2">
-                    <h3 class="title-subsection">Tarifas eléctricas regionales
-                    </h3>
-                    <div class="img-link shadow border-rounded-sm" style="aspect-ratio: 1/1.18;">
-                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/b382e89f-3db6-48b7-a950-c1290a35d415.png"
-                            style="object-fit: cover; height: 100%;">
-                        <a href="">
-                            <button class="btn-icon">
-                                <img src="../images/icons/excel.png" alt="">
-                            </button>
-                        </a>
-                    </div>
-                </div>
                 <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12">
                     <h3 class="title-subsection">Evolución de la Producción por tipo de combustible o tecnología</h3>
                     <div class="img-link shadow border-rounded-sm">
@@ -269,6 +255,20 @@
                         </a>
                     </div>
                 </div>
+                                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2">
+                    <h3 class="title-subsection">Tarifas eléctricas regionales
+                    </h3>
+                    <div class="img-link shadow border-rounded-sm" style="aspect-ratio: 1/1.18;">
+                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/b382e89f-3db6-48b7-a950-c1290a35d415.png"
+                            style="object-fit: cover; height: 100%;">
+                        <a href="">
+                            <button class="btn-icon">
+                                <img src="../images/icons/excel.png" alt="">
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                
             </div>
             <div class="section border-rounded-md xlg-12 lg-12 md-12 sm-12 ">
                 <div class="slide-container" num-items="3">

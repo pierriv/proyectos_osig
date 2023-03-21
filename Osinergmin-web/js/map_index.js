@@ -2,11 +2,22 @@ let map, view;
 let isOffice = true;
 let codeUbigeo = "00";
 let where = "1=1";
+let featureLayer = null;
 function redirectRegion(region, title, ubigeo) {
-  if (view){
-    view.goTo({
-      center: region,
-      zoom: 7
+  console.log(featureLayer);
+  console.log(ubigeo);
+  ubigeo = ubigeo.substring(0, 2);
+  if (view && featureLayer && ubigeo){
+    featureLayer.queryFeatures().then(results => {
+      results.features.forEach(element => {
+        console.log(element.attributes["CODDEPARTAMENTO"]);
+        console.log(element.attributes["NOMDEPARTAMENTO"]);
+        if (element.attributes["CODDEPARTAMENTO"] == ubigeo) {
+          //var sourceGraphics = results.features.map(e => { return e.geometry });
+          var sourceGraphics = element.geometry;
+          view.goTo(sourceGraphics);
+        }
+      });
     });
   }
 
@@ -20,7 +31,7 @@ function redirectRegion(region, title, ubigeo) {
 
 function redirectApplication(url){
   //Se recoge el codeUbigeo y se concatena a la url como parametro GET
-  location.href = url + "?ubigeo=" + codeUbigeo ;
+  location.href = url + "?ubigeo=" + codeUbigeo;
 }
 
 function returnMap() {
@@ -160,7 +171,7 @@ require([
     view.ui.add(MeExpand, 'top-right');
     view.ui.add(MeExpandLayer, { position: "top-right" });
 
-    const featureLayer = new FeatureLayer({
+    featureLayer = new FeatureLayer({
         url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Cartografia/LIMITE_DEPARTAMENTAL/MapServer/0",
         outFields: ["*"],
         //definitionExpression: where

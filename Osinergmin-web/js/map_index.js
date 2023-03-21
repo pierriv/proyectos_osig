@@ -1,21 +1,26 @@
 let map, view;
 let isOffice = true;
-let codeUbigeo = "";
+let codeUbigeo = "00";
 let where = "1=1";
-function redirectRegion(region,title) {
+function redirectRegion(region, title, ubigeo) {
   if (view){
     view.goTo({
       center: region,
       zoom: 7
     });
   }
-  
-  /* console.log(view);
-  console.log(region); */
-  codeUbigeo = region;
+
+  //Se guarda el ubigeo en la variable codeUbigeo
+  codeUbigeo = ubigeo;
+
   $('.title-site-map').html(title);
   $('#divContent').hide();
   $('#map').show();
+}
+
+function redirectApplication(url){
+  //Se recoge el codeUbigeo y se concatena a la url como parametro GET
+  location.href = url + "?ubigeo=" + codeUbigeo ;
 }
 
 function returnMap() {

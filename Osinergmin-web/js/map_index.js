@@ -2,16 +2,18 @@ let map, view;
 let isOffice = true;
 let codeUbigeo = "";
 let where = "1=1";
-function redirectRegion(region) {
+function redirectRegion(region,title) {
   if (view){
     view.goTo({
       center: region,
       zoom: 7
     });
   }
-  console.log(view);
-  console.log(region);
+  
+  /* console.log(view);
+  console.log(region); */
   codeUbigeo = region;
+  $('.title-site-map').html(title);
   $('#divContent').hide();
   $('#map').show();
 }

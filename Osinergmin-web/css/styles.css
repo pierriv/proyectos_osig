@@ -206,6 +206,7 @@ header .header-secondary-logo {
     font-weight: bold;
     justify-content: left;
     width: 70%;
+    transform: translateY(-15px);
 }
 
 header .header-secondary-logo>a {
@@ -217,7 +218,8 @@ header .header-secondary-logo>a {
 }
 
 header .header-secondary-logo img {
-    margin-right: 15px;
+    margin-right: 20px;
+    transform: scale(1.2);
 }
 
 header .header-logo {
@@ -335,8 +337,8 @@ header .header-logo {
 .stripe {
     background-color: var(--color-blue-primary);
     width: 100%;
-    padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .stripe>.content {
@@ -453,7 +455,7 @@ header .header-logo {
 
 .title-subsection {
     font-weight: 900;
-    color: var(--color-blue-primary);
+    color: var(--color-blue-secondary);
     margin-bottom: 20px;
 }
 
@@ -545,7 +547,7 @@ header .header-logo {
 
 .application-container:hover .application {
     cursor: pointer;
-    transform: translate3d(0, -35px, 0);
+    /* transform: translate3d(0, -35px, 0); */
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0 3px 4px 0 rgb(0 0 0 / 50%);
     z-index: 9;

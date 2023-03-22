@@ -1,29 +1,23 @@
 let map, view;
-let isOffice = true;
 let codeUbigeo = "00";
-let where = "1=1";
 let featureLayer = null;
 function redirectRegion(region, title, ubigeo) {
   console.log(featureLayer);
   console.log(ubigeo);
-  ubigeo = ubigeo.substring(0, 2);
+  var subUbigeo = region;
   if (view && featureLayer && ubigeo){
     featureLayer.queryFeatures().then(results => {
       results.features.forEach(element => {
         console.log(element.attributes["CODDEPARTAMENTO"]);
         console.log(element.attributes["NOMDEPARTAMENTO"]);
-        if (element.attributes["CODDEPARTAMENTO"] == ubigeo) {
-          //var sourceGraphics = results.features.map(e => { return e.geometry });
+        if (element.attributes["CODDEPARTAMENTO"] == subUbigeo) {
           var sourceGraphics = element.geometry;
           view.goTo(sourceGraphics);
         }
       });
     });
   }
-
-  //Se guarda el ubigeo en la variable codeUbigeo
-  codeUbigeo = ubigeo;
-
+  codeUbigeo = region;
   $('.title-site-map').html(title);
   $('#divContent').hide();
   $('#map').show();
@@ -99,14 +93,6 @@ require([
       $(this).attr("data-hover-class", "hover-green");
     });
 
-    //function redirectRegion(region) {
-    //  console.log(region);
-    //  $('#divContent').hide();
-    //  $('#map').show();
-    //}
-
-    var url_informales = "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/ELECTRICIDAD/MapServer";
-
     map = new Map({
       basemap: "osm"
     });
@@ -164,41 +150,40 @@ require([
       expandTooltip: 'Capas'
     });
 
-    
     view.ui.add(MeExpandSearchWidget, { position: "top-right", index: 2 })
-    //view.ui.add(searchWidget, { position: "top-right", index: 2 });
     view.ui.add(homeWidget, "top-right");
     view.ui.add(MeExpand, 'top-right');
     view.ui.add(MeExpandLayer, { position: "top-right" });
 
     featureLayer = new FeatureLayer({
         url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Cartografia/LIMITE_DEPARTAMENTAL/MapServer/0",
-        outFields: ["*"],
-        //definitionExpression: where
+        outFields: ["*"]
+    });
+    
+
+    const layer = new MapImageLayer({
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/ELECTRICIDAD/MapServer"
     });
 
-    //const layer = new MapImageLayer({
-    //  url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Cartografia/LIMITE_DEPARTAMENTAL/MapServer"
-    //});
-
     const layer2 = new MapImageLayer({
-      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/MapaSEIN_Operacion/MapServer"
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Gas_Natural/GAS_NATURAL/MapServer"
     });
 
     const layer3 = new MapImageLayer({
-      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/MapaSEIN_Proyectadas/MapServer"
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Hidrocarburos_Liquidos/HIDROCARBUROS_LIQUIDOS/MapServer"
     });
 
-    //const layer4 = new MapImageLayer({
-    //  url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Mineria/MINERIA_MEM/MapServer"
-    //});
+    const layer4 = new MapImageLayer({
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Mineria/MINERIA_MEM/MapServer"
+    });
 
 
-    map.add(featureLayer);
-    //map.add(layer);
+    map.add(layer);
     map.add(layer2);
     map.add(layer3);
-    //map.add(layer4);
+    map.add(layer4);
+    map.add(featureLayer);
+
     $("#map").css("height", "100%");
 
   });

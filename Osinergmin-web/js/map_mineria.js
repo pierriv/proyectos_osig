@@ -1,32 +1,4 @@
 let map, view;
-let isOffice = true;
-let codeUbigeo = "";
-let where = "1=1";
-let tempUri = "https://www.osinergmin.gob.pe/Tarifas/Electricidad/PliegoTarifario?Id=";
-let uri = "";
-
-function redirectRegion(region, title) {
-  if (view) {
-    view.goTo({
-      center: region,
-      zoom: 7
-    });
-  }
-
-  /* console.log(view);
-  console.log(region); */
-  codeUbigeo = region;
-
-  $('#divContent').hide();
-  $('#iframeMap').show();
-}
-
-function returnMap() {
-  $('#divContent').show();
-  $('#iframeMap').hide();
-}
-
-
 require([
     "esri/core/urlUtils",
     "esri/Map",
@@ -64,15 +36,6 @@ require([
         //_proxyurl = "https://gisem.osinergmin.gob.pe/proxy_developer/proxy.ashx";
         _proxyurl = "";
         $(document).ready(function(){
-
-          let urlparams= window.location.search;
-          _globalidor = urlparams.substring(1);
-          code = _globalidor.split('=')[1];
-          if (code){
-            console.log(code);
-            code = code.substring(0, 2);
-            where = "CODDEPARTAMENTO='"+code+"'";
-          }
  
           map = new Map({
               basemap: "osm"
@@ -84,34 +47,7 @@ require([
               center: [-74.049, -8.185],
               zoom: 6
           });
-
-          function changeSrcIframe(uriIframe) {
-            $('#iframe-electricidad').attr("src", uriIframe);
-          }
           
-          $("img[usemap]:last").mapify({
-            popOver: {
-              content: function (zone) {
-                changeSrcIframe(tempUri + zone.attr("ubigeo"));
-                return "<strong>" + zone.attr("data-title") + "</strong>";
-              },
-              delay: 0.3,
-              margin: "15px",
-              height: "130px",
-              width: "260px"
-            },
-            onAreaHighlight: function () {
-              console.log("onAreaHighlight callback");
-            },
-            onMapClear: function () {
-              console.log("onMapClear callback");
-            }
-          });
-          
-          $("#dynamicClassChange").click(function () {
-            $(this).attr("data-hover-class", "hover-green");
-          });
-
           let basemapGallery = new BasemapGallery({
               view: view
           });
@@ -156,34 +92,33 @@ require([
 
           const featureLayer = new FeatureLayer({
             url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Cartografia/LIMITE_DEPARTAMENTAL/MapServer/0",
-            outFields: ["*"],
-            definitionExpression: where
+            outFields: ["*"]
           });
       
-          const layer2 = new MapImageLayer({
-            url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/MapaSEIN_Operacion/MapServer"
-          });
-      
-          const layer3 = new MapImageLayer({
-            url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/MapaSEIN_Proyectadas/MapServer"
-          });
+          //const layer2 = new MapImageLayer({
+          //  url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/MapaSEIN_Operacion/MapServer"
+          //});
+          //
+          //const layer3 = new MapImageLayer({
+          //  url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Electricidad/MapaSEIN_Proyectadas/MapServer"
+          //});
 
 
+          //map.add(layer2);
+          //map.add(layer3);
           map.add(featureLayer);
-          map.add(layer2);
-          map.add(layer3);
           $("#map").css("height", "100%");
 
-          featureLayer.queryFeatures().then(results => {
-            if (results.features.length > 0)
-              zoomToLayer2(results);
-          });
-
-
-          function zoomToLayer2(results, _zoom){
-            var sourceGraphics = results.features.map(e => { return e.geometry });
-            view.goTo(sourceGraphics);
-          }
+          //featureLayer.queryFeatures().then(results => {
+          //  if (results.features.length > 0)
+          //    zoomToLayer2(results);
+          //});
+          //
+          //
+          //function zoomToLayer2(results, _zoom){
+          //  var sourceGraphics = results.features.map(e => { return e.geometry });
+          //  view.goTo(sourceGraphics);
+          //}
 
         });
     });

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css" />
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/single-slide.css">
     <link rel="stylesheet"
@@ -75,13 +76,8 @@
                 <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2">
                     <h3 class="title-subsection">Principales Proyectos Mineros</h3>
                     <div class="img-link shadow border-rounded-sm" style="aspect-ratio: 1/1.18;">
-                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/23fb9e03-f77c-4055-bafc-0a5f85386be7.png"
-                            style="object-fit: cover; height: 100%;">
-                        <a href="">
-                            <button class="btn-icon">
-                                <img src="../images/icons/excel.png" alt="">
-                            </button>
-                        </a>
+                        <div id="map" style="position: relative;">                            
+                        </div>
                     </div>
                 </div>
                 <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12">
@@ -149,6 +145,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
         integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="../js/events.js"></script>
+    <script src="https://js.arcgis.com/4.22/"></script>
+    <script src="../js/map_mineria.js"></script>
 </body>
 
 </html>

@@ -241,7 +241,91 @@
                                 </button>
                             </a>
                         </div>
-                        <div id="map" style="display: none; position: relative;">
+                        <div id="mapDiv" class="img-link shadow border-rounded-sm" style="aspect-ratio: 1/1.28;display: none;">
+                            <div id="map" style="position: relative;">
+                                <div class="title-site-map" style="
+                                    top: 15px;
+                                    position: absolute;
+                                    left: 50%; 
+                                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    background-color: #fff;
+                                    border: 0px;
+                                    color: #6e6e6e;
+                                    width: auto;
+                                    /* height: 32px; */
+                                    padding: 10px;
+                                    cursor: pointer;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    transform: translateX(-50%);">
+                                    Región
+                                </div>    
+                                <a class="btn-map-return"
+                                    style="top: 88px;position: absolute;left: 15px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);"
+                                    onclick="returnMap()">
+                                    <button style="font-size: 14px;
+                                    background-color: #fff;
+                                    border: 0px;
+                                    color: #6e6e6e;
+                                    width: 32px;
+                                    height: 32px;
+                                    padding: 0;
+                                    cursor: pointer;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;">
+                                        <span class="material-symbols-rounded" style="color: #929292;">
+                                            undo
+                                        </span>
+                                    </button>
+    
+                                </a>
+                                <div class="legend-map" style="
+                                    bottom: 15px;
+                                    position: absolute;
+                                    right: 10px;
+                                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+                                    font-size: 12px;
+                                    font-weight: bold;
+                                    background-color: #fff;
+                                    border: 0px;
+                                    color: #6e6e6e;
+                                    width: auto;
+                                    /* height: 32px; */
+                                    padding: 10px;
+                                    cursor: pointer;
+                                    /* display: flex; */
+                                    justify-content: center;
+                                    align-items: center;
+                                    /* transform: translateX(-50%); */
+                                    ">
+                                    <div class="form-check" style="padding-bottom: 5px;">
+                                        <input data-layer-id="1" type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                                        <label class="form-check-label" for="exampleCheck1">Limite Departamental</label>
+                                    </div>
+                                    <div class="form-check" style="padding-bottom: 5px;">
+                                        <input data-layer-id="2" type="checkbox" class="form-check-input" id="exampleCheck2" checked>
+                                        <label class="form-check-label" for="exampleCheck2">Electricidad</label>
+                                    </div>
+                                    <div class="form-check" style="padding-bottom: 5px;">
+                                        <input data-layer-id="3" type="checkbox" class="form-check-input" id="exampleCheck3">
+                                        <label class="form-check-label" for="exampleCheck3">Gas Natural</label>
+                                    </div>
+                                    <div class="form-check" style="padding-bottom: 5px;">
+                                        <input data-layer-id="4" type="checkbox" class="form-check-input" id="exampleCheck4">
+                                        <label class="form-check-label" for="exampleCheck4">Hidrocarburos Liquidos</label>
+                                    </div>
+                                    <div class="form-check" style="padding-bottom: 5px;">
+                                        <input data-layer-id="5" type="checkbox" class="form-check-input" id="exampleCheck5">
+                                        <label class="form-check-label" for="exampleCheck5">Mineria</label>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                        <!-- <div id="map" style="display: none; position: relative;">
                             <div class="title-site-map" style="
                                 top: 15px;
                                 position: absolute;
@@ -283,7 +367,7 @@
                                 </button>
 
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

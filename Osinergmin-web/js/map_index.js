@@ -20,7 +20,7 @@ function redirectRegion(region, title, ubigeo) {
   codeUbigeo = region;
   $('.title-site-map').html(title);
   $('#divContent').hide();
-  $('#map').show();
+  $('#mapDiv').show();
 }
 
 function redirectApplication(url){
@@ -30,7 +30,7 @@ function redirectApplication(url){
 
 function returnMap() {
   $('#divContent').show();
-  $('#map').hide();
+  $('#mapDiv').hide();
 }
 
 require([
@@ -166,15 +166,18 @@ require([
     });
 
     const layer2 = new MapImageLayer({
-      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Gas_Natural/GAS_NATURAL/MapServer"
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Gas_Natural/GAS_NATURAL/MapServer",
+      visible:false
     });
 
     const layer3 = new MapImageLayer({
-      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Hidrocarburos_Liquidos/HIDROCARBUROS_LIQUIDOS/MapServer"
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Hidrocarburos_Liquidos/HIDROCARBUROS_LIQUIDOS/MapServer",
+      visible:false
     });
 
     const layer4 = new MapImageLayer({
-      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Mineria/MINERIA_MEM/MapServer"
+      url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Mineria/MINERIA_MEM/MapServer",
+      visible:false
     });
 
 
@@ -185,6 +188,39 @@ require([
     map.add(featureLayer);
 
     $("#map").css("height", "100%");
+    console.log($(":checkbox"));
+    $(":checkbox").on('change', function(event) {
+        console.log(event.currentTarget);
+        var checkbox = event.target;
+        console.log(event.currentTarget.dataset);
+        var layerTemp = null;
+        if (event.currentTarget.dataset.layerId=="1")
+        {
+          layerTemp = featureLayer;
+        }
+        else if (event.currentTarget.dataset.layerId=="2")
+        {
+          layerTemp = layer;
+        }
+        else if (event.currentTarget.dataset.layerId=="3")
+        {
+          layerTemp = layer2;
+        }
+        else if (event.currentTarget.dataset.layerId=="4")
+        {
+          layerTemp = layer3;
+        }
+        else if (event.currentTarget.dataset.layerId=="5")
+        {
+          layerTemp = layer4;
+        }
+        layerTemp.visible = checkbox.checked;
+        //if (checkbox.checked) {
+        //    //Checkbox has been checked
+        //} else {
+        //    //Checkbox has been unchecked
+        //}
+    });
 
   });
 });

@@ -53,12 +53,15 @@ require([
           let urlparams= window.location.search;
           _globalidor = urlparams.substring(1);
           code = _globalidor.split('=')[1];
-          if (code){
-            console.log(code);
+          console.log(code);
+          if (code ){           
             code = code.substring(0, 2);
-            where = "CODDEPARTAMENTO='"+code+"'";
+            where = "CODDEPARTAMENTO='"+code+"'";            
           }
- 
+          if (code != "00"){
+            $("#divCompleto").hide();
+          }
+          
           map = new Map({
               basemap: "osm"
           });
@@ -169,6 +172,7 @@ require([
             var sourceGraphics = results.features.map(e => { return e.geometry });
             view.goTo(sourceGraphics);
           }
+          
 
         });
     });

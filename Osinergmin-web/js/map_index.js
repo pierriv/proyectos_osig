@@ -2,14 +2,14 @@ let map, view;
 let codeUbigeo = "00";
 let featureLayer = null;
 function redirectRegion(region, title, ubigeo) {
-  console.log(featureLayer);
-  console.log(ubigeo);
+  //console.log(featureLayer);
+  //console.log(ubigeo);
   var subUbigeo = region;
   if (view && featureLayer && ubigeo){
     featureLayer.queryFeatures().then(results => {
       results.features.forEach(element => {
-        console.log(element.attributes["CODDEPARTAMENTO"]);
-        console.log(element.attributes["NOMDEPARTAMENTO"]);
+        //console.log(element.attributes["CODDEPARTAMENTO"]);
+        //console.log(element.attributes["NOMDEPARTAMENTO"]);
         if (element.attributes["CODDEPARTAMENTO"] == subUbigeo) {
           var sourceGraphics = element.geometry;
           view.goTo(sourceGraphics);
@@ -129,15 +129,15 @@ require([
     });
 
     //Widget layerList
-    let layerList = new LayerList({
-      view: view
-    });    
-    const MeExpandLayer = new Expand({
-      view: view,
-      content: layerList,
-      expanded: false,
-      expandTooltip: 'Capas'
-    });
+    //let layerList = new LayerList({
+    //  view: view
+    //});    
+    //const MeExpandLayer = new Expand({
+    //  view: view,
+    //  content: layerList,
+    //  expanded: false,
+    //  expandTooltip: 'Capas'
+    //});
 
     //Widget searchWidget
     const searchWidget = new Search({
@@ -147,13 +147,13 @@ require([
       view: view,
       content: searchWidget,
       expanded: false,
-      expandTooltip: 'Capas'
+      expandTooltip: 'Buscar'
     });
 
     view.ui.add(MeExpandSearchWidget, { position: "top-right", index: 2 })
     view.ui.add(homeWidget, "top-right");
     view.ui.add(MeExpand, 'top-right');
-    view.ui.add(MeExpandLayer, { position: "top-right" });
+    //view.ui.add(MeExpandLayer, { position: "top-right" });
 
     featureLayer = new FeatureLayer({
         url: "https://gisem.osinergmin.gob.pe/serverosih/rest/services/Cartografia/LIMITE_DEPARTAMENTAL/MapServer/0",
@@ -188,11 +188,11 @@ require([
     map.add(featureLayer);
 
     $("#map").css("height", "100%");
-    console.log($(":checkbox"));
+    //console.log($(":checkbox"));
     $(":checkbox").on('change', function(event) {
-        console.log(event.currentTarget);
+        //console.log(event.currentTarget);
         var checkbox = event.target;
-        console.log(event.currentTarget.dataset);
+        //console.log(event.currentTarget.dataset);
         var layerTemp = null;
         if (event.currentTarget.dataset.layerId=="1")
         {

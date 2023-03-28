@@ -56,10 +56,14 @@ require([
           console.log(code);
           if (code ){           
             code = code.substring(0, 2);
-            where = "CODDEPARTAMENTO='"+code+"'";            
+            where = "CODDEPARTAMENTO='"+code.substring(0, 2)+"'";            
           }
           if (code != "00"){
             $("#divCompleto").hide();
+            $('#divContent').hide();
+            $('#iframeMap').show();
+            $('.btn-map-return').hide();
+            $('#iframe-electricidad').attr('src', tempUri+code+'0000');
           }
           
           map = new Map({

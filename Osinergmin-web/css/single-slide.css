@@ -11,10 +11,13 @@
     position: inherit;
     /* gap: 12px; */
     scroll-padding: 10px;
+    scroll-behavior: auto;
     white-space: nowrap;
     transition: all 0.2s;
     will-change: transform;
+    overscroll-behavior: contain;
     user-select: none;
+    scrollbar-width: none;
 }
 
 .slide-container:hover > :not(:hover) {

@@ -1,0 +1,10 @@
+C:\projects\Servicios\proyectos_osig\Osinergmin-web\api-services\obj\Release\netcoreapp3.1\PubTmp\Out\ApiService.exe
+C:\projects\Servicios\proyectos_osig\Osinergmin-web\api-services\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.Development.json
+C:\projects\Servicios\proyectos_osig\Osinergmin-web\api-services\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.json
+C:\projects\Servicios\proyectos_osig\Osinergmin-web\api-services\obj\Release\netcoreapp3.1\PubTmp\Out\ApiService.dll
+C:\projects\Servicios\proyectos_osig\Osinergmin-web\api-services\obj\Release\netcoreapp3.1\PubTmp\Out\ApiService.deps.json
+C:\projects\Servicios\proyectos_osig\Osinergmin-web\api-services\obj\Release\netcoreapp3.1\PubTmp\Out\ApiService.runtimeconfig.json
+C:\projects\Servicios\proyectos_osig\Osinergmin-web\api-services\obj\Release\netcoreapp3.1\PubTmp\Out\ApiService.pdb
+C:\projects\Servicios\proyectos_osig\Osinergmin-web\api-services\obj\Release\netcoreapp3.1\PubTmp\Out\ExcelDataReader.dll
+C:\projects\Servicios\proyectos_osig\Osinergmin-web\api-services\obj\Release\netcoreapp3.1\PubTmp\Out\ExcelDataReader.DataSet.dll
+C:\projects\Servicios\proyectos_osig\Osinergmin-web\api-services\obj\Release\netcoreapp3.1\PubTmp\Out\Newtonsoft.Json.dll

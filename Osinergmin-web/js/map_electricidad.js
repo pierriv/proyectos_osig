@@ -181,13 +181,15 @@ require([
             view.goTo(sourceGraphics);
           }
 
-          fetch("https://gisem.osinergmin.gob.pe/validar/observatorio3/apiObservatorio/api")
-          .then((response) => response.json())
-          .then((response) => {
-            //console.log(response.data);
-            responseReporte = response.data;
+          $("#ddlPais").on('change', function (e) {
+            console.log(e.currentTarget.value);
+            if (e.currentTarget.value != "")
+              filterData(responseReporte, e.currentTarget.value);
+          });
+
+          function filterData(data, filtro){
             $("#tbdReporte").html("");
-            var filter = response.data.filter(t => t.codigo == "AR");
+            var filter = data.filter(t => t.codigo == filtro);
             filter.forEach(t => {
               $("#tbdReporte").append("<tr>"+
               "<td>"+t.codigo+"<td>"+
@@ -201,7 +203,19 @@ require([
               "<td>"+t.unidad50000.toFixed(2)+"<td>"+
               "<td>"+t.unidad500000.toFixed(2)+"<td>"+
               "</tr>");
-            });
+            });            
+          }
+
+          fetch("https://gisem.osinergmin.gob.pe/validar/observatorio3/apiObservatorio/api")
+          .then((response) => response.json())
+          .then((response) => {
+            //console.log(response.data);
+            responseReporte = response.data;
+            $("#ddlPais").html("<option value=''>Seleccione</option>");
+            responseReporte.forEach(t => {
+              $("#ddlPais").append("<option value="+t.codigo+">"+t.pais+"</option>");
+            });           
+            filterData(responseReporte, "PE");
           });
         });
     });

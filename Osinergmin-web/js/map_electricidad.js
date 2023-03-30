@@ -1,7 +1,11 @@
 let map, view;
 let tempUri = "https://www.osinergmin.gob.pe/Tarifas/Electricidad/PliegoTarifario?Id=";
 let uri = "";
-
+let responseReporte = null;
+var monthNames = [
+  "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+  "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"
+];
 function redirectRegion(region, title) {
   $('#divContent').hide();
   $('#iframeMap').show();
@@ -56,10 +60,14 @@ require([
           console.log(code);
           if (code ){           
             code = code.substring(0, 2);
-            where = "CODDEPARTAMENTO='"+code+"'";            
+            where = "CODDEPARTAMENTO='"+code.substring(0, 2)+"'";            
           }
           if (code != "00"){
             $("#divCompleto").hide();
+            $('#divContent').hide();
+            $('#iframeMap').show();
+            $('.btn-map-return').hide();
+            $('#iframe-electricidad').attr('src', tempUri+code+'0000');
           }
           
           map = new Map({
@@ -172,7 +180,28 @@ require([
             var sourceGraphics = results.features.map(e => { return e.geometry });
             view.goTo(sourceGraphics);
           }
-          
 
+          fetch("https://gisem.osinergmin.gob.pe/validar/observatorio3/apiObservatorio/api")
+          .then((response) => response.json())
+          .then((response) => {
+            //console.log(response.data);
+            responseReporte = response.data;
+            $("#tbdReporte").html("");
+            var filter = response.data.filter(t => t.codigo == "AR");
+            filter.forEach(t => {
+              $("#tbdReporte").append("<tr>"+
+              "<td>"+t.codigo+"<td>"+
+              "<td>"+t.pais+"<td>"+
+              "<td>"+ monthNames[new Date(t.mes).getMonth()] + " - "+ new Date(t.mes).getFullYear() +"<td>"+
+              "<td>"+t.unidad30.toFixed(2)+"<td>"+
+              "<td>"+t.unidad65.toFixed(2)+"<td>"+
+              "<td>"+t.unidad125.toFixed(2)+"<td>"+
+              "<td>"+t.unidad300.toFixed(2)+"<td>"+
+              "<td>"+t.unidad1000.toFixed(2)+"<td>"+
+              "<td>"+t.unidad50000.toFixed(2)+"<td>"+
+              "<td>"+t.unidad500000.toFixed(2)+"<td>"+
+              "</tr>");
+            });
+          });
         });
     });

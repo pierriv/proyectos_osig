@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "30zsuWFdCAC2M2DTrJtnCVFnq2pe4kjQu5x6YOn7euhLG4n5z7TC3cD7gW1rtUuZxnr1crju+xiE7gLfsb5TWA==",
+  "success": true,
+  "projectFilePath": "C:\\projects\\Servicios\\proyectos_osig\\Osinergmin-web\\api-services\\ApiService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jrreyna\\.nuget\\packages\\exceldatareader\\3.6.0\\exceldatareader.3.6.0.nupkg.sha512",
+    "C:\\Users\\jrreyna\\.nuget\\packages\\exceldatareader.dataset\\3.6.0\\exceldatareader.dataset.3.6.0.nupkg.sha512",
+    "C:\\Users\\jrreyna\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\jrreyna\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\jrreyna\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\jrreyna\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\jrreyna\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.31\\microsoft.netcore.app.host.win-x64.3.1.31.nupkg.sha512"
+  ],
+  "logs": []
+}

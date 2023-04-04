@@ -75,6 +75,55 @@
             </div>
         </div>
         <style>
+            .content-data-map {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 50%;
+                padding: 20px;
+                background-color: white;
+                box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.1);
+                opacity: 0;
+                transform: translateY(100%);
+                transition: 0.3s;
+            }
+
+            .content-data-map.open {
+                opacity: 1;
+                transform: translateY(0%);
+                transition: 0.3s;
+            }
+
+            .content-data-map .header {
+                width: 100%;
+            }
+
+            .content-data-map .header a {
+                cursor: pointer;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                
+            }
+
+            .content-data-map .header a span {
+                font-size: 25px !important;
+                font-weight: bolder !important;
+                border-radius: 28px;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+
+            .content-data-map .header a span:hover {
+                font-size: 25px !important;
+                font-weight: bolder !important;
+                border-radius: 28px;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+
+            .content-data-map .body {
+                width: 100%;
+            }
+
             @media (min-width: 1024px) {
                 .group-btn-left {
                     height: 0px;
@@ -140,6 +189,8 @@
                     opacity: 1;
                     left: 100%;
                 }
+
+
             }
         </style>
         <div class="content" style="position: relative;">
@@ -166,7 +217,8 @@
                 </button>
             </div>
             <div class="grid-container align-start xlg-12 lg-12 md-12 sm-12">
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12" id="Interrupciones-saidi-y-saifi">
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12"
+                    id="Interrupciones-saidi-y-saifi">
                     <h3 class="title-subsection">Interrupciones (SAIDI y SAIFI)</h3>
                     <div class="img-link shadow border-rounded-sm">
                         <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/ab5d4ab4-2ebc-4d00-9d8e-1bbee5eeee59.png"
@@ -178,7 +230,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2" id="informacion-de-plantas-generadoras">
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2"
+                    id="informacion-de-plantas-generadoras">
                     <h3 class="title-subsection">Información de plantas generadoras, líneas y subestaciones eléctricas
                     </h3>
                     <div class="img-link shadow border-rounded-sm" style="aspect-ratio: 1/1.18;">
@@ -207,7 +260,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12" id="informacion-de-los-usuarios-regulados-por-zonas">
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12"
+                    id="informacion-de-los-usuarios-regulados-por-zonas">
                     <h3 class="title-subsection">Información de los Usuarios regulados por zonas de concesión de
                         distribuidoras</h3>
                     <div class="img-link shadow border-rounded-sm">
@@ -222,7 +276,8 @@
                 </div>
             </div>
             <div class="grid-container align-start xlg-12 lg-12 md-12 sm-12">
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12" id="porcentaje-de-unidades-de-alumbrado-publico">
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12"
+                    id="porcentaje-de-unidades-de-alumbrado-publico">
                     <h3 class="title-subsection">Porcentaje de Unidades de Alumbrado Público (UAP) Deficientes
                         detectadas en los procedimientos de supervisión</h3>
                     <div class="img-link shadow border-rounded-sm">
@@ -235,7 +290,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2" id="terifas-electricas-del-pais">
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2"
+                    id="terifas-electricas-del-pais">
                     <h3 class="title-subsection">Tarifas eléctricas del país
                     </h3>
                     <div class="img-link"
@@ -346,7 +402,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12" id="evolucion-de-la-generacion-y-maxima-demanda-del-sein">
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12"
+                    id="evolucion-de-la-generacion-y-maxima-demanda-del-sein">
                     <h3 class="title-subsection">Evolución de la Generación y Máxima Demanda del SEIN</h3>
                     <div class="img-link shadow border-rounded-sm">
                         <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/172235f4-728f-4938-9c58-84e3ffb97dc9.png"
@@ -360,7 +417,8 @@
                 </div>
             </div>
             <div class="grid-container align-start xlg-12 lg-12 md-12 sm-12">
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12" id="evolucion-de-la-produccion-por-tipo-de-combustible">
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12"
+                    id="evolucion-de-la-produccion-por-tipo-de-combustible">
                     <h3 class="title-subsection">Evolución de la Producción por tipo de combustible o tecnología</h3>
                     <div class="img-link shadow border-rounded-sm">
                         <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/1bb24e24-ebb6-4513-8d80-3592e2ca0522.png"
@@ -386,27 +444,52 @@
                         </a>
                     </div>
                 </div>
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12" id="divReporte">
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12"
+                    id="divReporte">
                     <div class="row"><span>País</span><select id="ddlPais" class="form-control">
-                    </select></div>
+                        </select></div>
                     <div class="img-link shadow border-rounded-sm">
                         <table class="table table-striped">
                             <thead>
-                              <tr>
-                                <th scope="col">Código</th>
-                                <th scope="col">País</th>
-                                <th scope="col">Mes</th>
-                                <th scope="col">30</th>
-                                <th scope="col">65</th>
-                                <th scope="col">125</th>
-                                <th scope="col">300</th>
-                                <th scope="col">1,000</th>
-                                <th scope="col">50,000</th>
-                                <th scope="col">500,000</th>
-                              </tr>
+                                <tr>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">País</th>
+                                    <th scope="col">Mes</th>
+                                    <th scope="col">30</th>
+                                    <th scope="col">65</th>
+                                    <th scope="col">125</th>
+                                    <th scope="col">300</th>
+                                    <th scope="col">1,000</th>
+                                    <th scope="col">50,000</th>
+                                    <th scope="col">500,000</th>
+                                </tr>
                             </thead>
                             <tbody id="tbdReporte"></tbody>
-                          </table>
+                        </table>
+                    </div>
+                </div>
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2"
+                    id="divCompleto">
+                    <h3 class="title-subsection">Tarifas eléctricas regionales
+                    </h3>
+                    <div class="img-link shadow border-rounded-sm" style="aspect-ratio: 1/1.18;">
+                        <img class="btn-open-content-data-map"
+                            src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/b382e89f-3db6-48b7-a950-c1290a35d415.png"
+                            style="object-fit: cover; height: 100%; cursor: pointer;">
+                        <div class="content-data-map shadow">
+                            <div class="header">
+                                <h3>Perú</h3>
+                                <a class="btn-close-content-data-map">
+                                    <span class="material-symbols-rounded">
+                                        expand_more
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="body">
+                                <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/172235f4-728f-4938-9c58-84e3ffb97dc9.png"
+                                    alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

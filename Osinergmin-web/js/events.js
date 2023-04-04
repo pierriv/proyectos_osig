@@ -46,6 +46,17 @@ $(document).ready(function () {
         $('html,body').removeClass('block-scroll');
     }
 
+    /* ==== ELECTRICIDAD ==== */
+
+    $(".btn-open-content-data-map").on("click", function () {
+        $(".content-data-map").addClass("open");
+    });
+
+    $(".btn-close-content-data-map").on("click", function () {
+        $(".content-data-map").removeClass("open");
+    });
+
+    /* ==== FIN ELECTRICIDAD ==== */
 
     /* >>>>>>>> Slider <<<<<<<<<< */
 
@@ -77,23 +88,5 @@ $(document).ready(function () {
         slider.scrollLeft = scrollLeft - walk;
         console.log(walk);
     });
-
-    /* >>>>>> Actions NavBar <<<<<<*/
-
-    /* Active menú */
-    /* $("nav ul li a").on("click", function () {
-        $("nav ul li a").removeClass("active");
-        $(this).addClass("active");
-    }); */
-
-    /* Colapse menú */
-    /* $("#toggle-nav-bar").on("click", function () {
-        $(".nav-bar").toggleClass("nav-bar-colapse");
-    }); */
-
-    /* Content full colapse */
-    /* $("#btn-full-content").on("click", function () {
-        $(".content").toggleClass("full");
-    }); */
 
 });

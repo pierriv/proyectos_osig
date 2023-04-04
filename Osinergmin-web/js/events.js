@@ -1,8 +1,5 @@
 /* ==== ELECTRICIDAD ==== */
-function btnOpenContentDataMap(codigo, nombre, ubigeo) {
-    $('#title-content-data-map').html(nombre);
-    $(".content-data-map").addClass("open");
-}
+
 /* ==== FIN ELECTRICIDAD ==== */
 
 $(document).ready(function () {

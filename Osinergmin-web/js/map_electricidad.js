@@ -16,7 +16,30 @@ function returnMap() {
   $('#divContent').show();
   $('#iframeMap').hide();
 }
-
+function btnOpenContentDataMap(codigo, nombre, ubigeo) {
+  console.log(nombre);
+  $('#title-content-data-map').html(nombre);
+  $(".content-data-map").addClass("open");
+  filterData(responseReporte, nombre);
+}
+function filterData(data, filtro) {
+  $("#tbdReporte").html("");
+  var filter = data.filter(t => t.pais == filtro);
+  filter.forEach(t => {
+    $("#tbdReporte").append("<tr>"+
+    "<td>"+t.codigo+"<td>"+
+    "<td>"+t.pais+"<td>"+
+    "<td>"+ monthNames[new Date(t.mes).getMonth()] + " - "+ new Date(t.mes).getFullYear() +"<td>"+
+    "<td>"+t.unidad30.toFixed(2)+"<td>"+
+    "<td>"+t.unidad65.toFixed(2)+"<td>"+
+    "<td>"+t.unidad125.toFixed(2)+"<td>"+
+    "<td>"+t.unidad300.toFixed(2)+"<td>"+
+    "<td>"+t.unidad1000.toFixed(2)+"<td>"+
+    "<td>"+t.unidad50000.toFixed(2)+"<td>"+
+    "<td>"+t.unidad500000.toFixed(2)+"<td>"+
+    "</tr>");
+  });
+}
 require([
     "esri/core/urlUtils",
     "esri/Map",

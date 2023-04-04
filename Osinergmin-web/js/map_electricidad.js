@@ -2,6 +2,7 @@ let map, view;
 let tempUri = "https://www.osinergmin.gob.pe/Tarifas/Electricidad/PliegoTarifario?Id=";
 let uri = "";
 let responseReporte = null;
+let where = null;
 var monthNames = [
   "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
   "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"

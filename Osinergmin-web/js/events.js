@@ -1,4 +1,23 @@
+/* ==== ELECTRICIDAD ==== */
+function btnOpenContentDataMap(codigo, nombre, ubigeo) {
+    $('#title-content-data-map').html(nombre);
+    $(".content-data-map").addClass("open");
+}
+/* ==== FIN ELECTRICIDAD ==== */
+
 $(document).ready(function () {
+
+    /* ==== ELECTRICIDAD ==== */
+
+    /* $(".btn-open-content-data-map").on("click", function () {
+        $(".content-data-map").addClass("open");
+    }); */
+
+    $(".btn-close-content-data-map").on("click", function () {
+        $(".content-data-map").removeClass("open");
+    });
+
+    /* ==== FIN ELECTRICIDAD ==== */
 
     /* >>>>>>>> Modal <<<<<<<<<< */
 
@@ -46,27 +65,15 @@ $(document).ready(function () {
         $('html,body').removeClass('block-scroll');
     }
 
-    /* ==== ELECTRICIDAD ==== */
-
-    $(".btn-open-content-data-map").on("click", function () {
-        $(".content-data-map").addClass("open");
-    });
-
-    $(".btn-close-content-data-map").on("click", function () {
-        $(".content-data-map").removeClass("open");
-    });
-
-    /* ==== FIN ELECTRICIDAD ==== */
-
     /* >>>>>>>> Slider <<<<<<<<<< */
 
     const slider = document.querySelector('.slide-container');
     let isDown = false;
     let startX;
     let scrollLeft;
-       
+
     slider.addEventListener('mousedown', (e) => {
-        
+
         isDown = true;
         slider.classList.add('active');
         startX = e.pageX - slider.offsetLeft;

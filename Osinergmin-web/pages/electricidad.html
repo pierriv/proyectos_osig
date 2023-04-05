@@ -16,12 +16,150 @@
 
     <style>
         .mapify-holder {
-            width: 95%;
+            width: 80%;
             z-index: 0;
         }
 
         .mapify-hover {
             fill: #33a3dc;
+        }
+
+        .content-data-map {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            max-height: 50%;
+            padding: 20px;
+            background-color: rgb(245, 245, 245);
+            box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(100%);
+            transition: 0.3s;
+        }
+
+        .content-data-map.open {
+            opacity: 1;
+            transform: translateY(0%);
+            transition: 0.3s;
+        }
+
+        .content-data-map .header {
+            width: 100%;
+        }
+
+        .content-data-map .header a {
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+
+        }
+
+        .content-data-map .header a span {
+            font-size: 25px !important;
+            font-weight: bolder !important;
+            border-radius: 28px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .content-data-map .header a span:hover {
+            font-size: 25px !important;
+            font-weight: bolder !important;
+            border-radius: 28px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .content-data-map .body {
+            width: 100%;
+            max-height: 90%;
+            overflow: auto;
+        }
+
+        table {
+            font-size: 13px;
+            text-align: center;
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-spacing: 0;
+            transition: 0.2s;
+        }
+
+        table thead {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        th,
+        td {
+            padding: 8px;
+        }
+
+        @media (min-width: 1024px) {
+            .group-btn-left {
+                height: 0px;
+                position: sticky;
+                top: 25px;
+                margin-top: 10px;
+                margin-left: -90px;
+                width: 100px;
+                z-index: 9;
+            }
+
+            .group-btn-left button {
+                border-radius: 50%;
+                padding: 0px;
+                /* font-size: 0px; */
+                width: auto;
+                width: 65px;
+                height: 65px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .group-btn-left button:nth-child(1) {
+                margin-top: 10px;
+            }
+
+            .group-btn-left button span {
+                font-size: 30px;
+            }
+
+            .group-btn-left button .btn-tooltip {
+                visibility: hidden;
+                opacity: 0;
+                position: absolute;
+                left: 80%;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 12px 15px;
+                background-color: #3b3b3b;
+                border-radius: 28px;
+                color: white;
+                width: 250px;
+                margin-left: 10px;
+            }
+
+            .group-btn-left button .btn-tooltip::after {
+                content: "";
+                border-right: 15px solid transparent;
+                border-bottom: 15px solid transparent;
+                border-left: 15px solid transparent;
+                border-top: 15px solid #3b3b3b;
+                height: 0;
+                position: absolute;
+                left: -22px;
+                top: 50%;
+                width: 0;
+                transform: rotate(90deg) translateX(-50%);
+                transition: 1s;
+            }
+
+            .group-btn-left button:hover .btn-tooltip {
+                visibility: inherit;
+                opacity: 1;
+                left: 100%;
+            }
+
+
         }
     </style>
     <title>Electricidad | Osinergmin</title>
@@ -75,125 +213,6 @@
                 </ol>
             </div>
         </div>
-        <style>
-            .content-data-map {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                height: 50%;
-                padding: 20px;
-                background-color: white;
-                box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.1);
-                opacity: 0;
-                transform: translateY(100%);
-                transition: 0.3s;
-            }
-
-            .content-data-map.open {
-                opacity: 1;
-                transform: translateY(0%);
-                transition: 0.3s;
-            }
-
-            .content-data-map .header {
-                width: 100%;
-            }
-
-            .content-data-map .header a {
-                cursor: pointer;
-                position: absolute;
-                top: 15px;
-                right: 15px;
-
-            }
-
-            .content-data-map .header a span {
-                font-size: 25px !important;
-                font-weight: bolder !important;
-                border-radius: 28px;
-                background-color: rgba(0, 0, 0, 0.1);
-            }
-
-            .content-data-map .header a span:hover {
-                font-size: 25px !important;
-                font-weight: bolder !important;
-                border-radius: 28px;
-                background-color: rgba(0, 0, 0, 0.2);
-            }
-
-            .content-data-map .body {
-                width: 100%;
-            }
-
-            @media (min-width: 1024px) {
-                .group-btn-left {
-                    height: 0px;
-                    position: sticky;
-                    top: 25px;
-                    margin-top: 10px;
-                    margin-left: -90px;
-                    width: 100px;
-                    z-index: 9;
-                }
-
-                .group-btn-left button {
-                    border-radius: 50%;
-                    padding: 0px;
-                    /* font-size: 0px; */
-                    width: auto;
-                    width: 65px;
-                    height: 65px;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .group-btn-left button:nth-child(1) {
-                    margin-top: 10px;
-                }
-
-                .group-btn-left button span {
-                    font-size: 30px;
-                }
-
-                .group-btn-left button .btn-tooltip {
-                    visibility: hidden;
-                    opacity: 0;
-                    position: absolute;
-                    left: 80%;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    padding: 12px 15px;
-                    background-color: #3b3b3b;
-                    border-radius: 28px;
-                    color: white;
-                    width: 250px;
-                    margin-left: 10px;
-                }
-
-                .group-btn-left button .btn-tooltip::after {
-                    content: "";
-                    border-right: 15px solid transparent;
-                    border-bottom: 15px solid transparent;
-                    border-left: 15px solid transparent;
-                    border-top: 15px solid #3b3b3b;
-                    height: 0;
-                    position: absolute;
-                    left: -22px;
-                    top: 50%;
-                    width: 0;
-                    transform: rotate(90deg) translateX(-50%);
-                    transition: 1s;
-                }
-
-                .group-btn-left button:hover .btn-tooltip {
-                    visibility: inherit;
-                    opacity: 1;
-                    left: 100%;
-                }
-
-
-            }
-        </style>
         <div class="content" style="position: relative;">
             <div class="group-btn-left grid-container section-md xlg-12 lg-12 md-12 sm-12 ">
                 <button class="xlg-12 lg-12 md-4 sm-12 btn-slide shadow">
@@ -277,20 +296,6 @@
                 </div>
             </div>
             <div class="grid-container align-start xlg-12 lg-12 md-12 sm-12">
-                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12"
-                    id="porcentaje-de-unidades-de-alumbrado-publico">
-                    <h3 class="title-subsection">Porcentaje de Unidades de Alumbrado Público (UAP) Deficientes
-                        detectadas en los procedimientos de supervisión</h3>
-                    <div class="img-link shadow border-rounded-sm">
-                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/d0cb6817-d84b-487a-9eac-b8d1bec53536.png"
-                            alt="">
-                        <a href="">
-                            <button class="btn-icon">
-                                <img src="../images/icons/excel.png" alt="">
-                            </button>
-                        </a>
-                    </div>
-                </div>
                 <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12 rows-2"
                     id="terifas-electricas-del-pais">
                     <h3 class="title-subsection">Tarifas eléctricas del país
@@ -298,8 +303,8 @@
                     <div class="img-link"
                         style="aspect-ratio: 1/1.18; display: flex; justify-content: center; align-items: center;"
                         id="divContent">
-                        <img src="../images/map/map-peru-electricidad.png" width="416px" height="600px" border="0"
-                            usemap="#Map" />
+                        <img id="firstMap" src="../images/map/map-peru-electricidad.png" width="416px" height="600px"
+                            border="0" usemap="#Map" />
                         <map name="Map" id="Map">
                             <area shape="poly" href="javaScript:redirectRegion([-78.118377, -5.27000],'Amazonas')"
                                 title="Amazonas" ubigeo="10000" alt="Amazonas"
@@ -401,6 +406,21 @@
                                 </span>
                             </button>
                         </a>
+                                  
+                    </div>
+                </div>
+                <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12"
+                    id="porcentaje-de-unidades-de-alumbrado-publico">
+                    <h3 class="title-subsection">Porcentaje de Unidades de Alumbrado Público (UAP) Deficientes
+                        detectadas en los procedimientos de supervisión</h3>
+                    <div class="img-link shadow border-rounded-sm">
+                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/d0cb6817-d84b-487a-9eac-b8d1bec53536.png"
+                            alt="">
+                        <a href="">
+                            <button class="btn-icon">
+                                <img src="../images/icons/excel.png" alt="">
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12"
@@ -435,70 +455,67 @@
                     id="divCompleto">
                     <h3 class="title-subsection">Tarifas eléctricas regionales
                     </h3>
-                    <div class="img-link shadow border-rounded-sm" style="aspect-ratio: 1/1.18;">
-
-
-
-
-                        <img id="Image-Maps-Com-image-maps-2023-04-04-055656" class="btnOpenContentDataMap"
+                    <div class="img-link shadow border-rounded-sm"
+                        style="aspect-ratio: 1/1.18; display: flex; justify-content: center; align-items: center;">
+                        <img id="secondMap" class="btnOpenContentDataMap"
                             src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/b382e89f-3db6-48b7-a950-c1290a35d415.png"
                             style="object-fit: cover; height: 100%; cursor: pointer;" border="0" width="488"
                             height="604" orgWidth="488" orgHeight="604" usemap="#MapSudAmerica" alt="" />
                         <map name="MapSudAmerica" id="MapSudAmerica">
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Argentina', '10000')" title="Argentina"
-                                ubigeo="10000" alt="Argentina" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Argentina', '10000')"
+                                title="Argentina" ubigeo="10000" alt="Argentina" shape="poly"
                                 coords="304,583,300,582,294,578,290,575,287,573,286,568,284,564,285,562,282,554,282,544,291,539,292,535,292,531,297,527,301,523,301,515,291,510,292,502,296,498,302,497,305,492,305,484,307,479,313,478,314,475,312,474,307,473,304,470,303,466,305,465,313,467,320,465,321,459,323,457,320,452,320,450,330,450,339,449,347,446,350,441,351,437,353,435,353,431,349,427,350,424,346,420,342,418,342,415,343,412,345,408,345,399,347,398,346,392,351,387,352,383,358,376,363,370,367,369,369,368,369,361,368,358,365,357,363,359,359,367,356,370,353,370,350,368,345,368,343,367,348,356,347,353,343,353,336,349,328,347,323,343,321,338,320,335,309,334,308,336,305,336,303,334,300,335,297,334,294,339,292,340,293,347,291,349,290,351,286,352,285,368,282,369,280,371,279,377,277,385,275,393,272,395,276,402,276,415,275,421,272,424,273,429,270,432,269,449,267,450,268,455,266,456,267,461,266,463,265,480,264,485,266,491,265,495,269,501,266,504,266,514,263,519,262,527,258,532,257,536,256,540,258,545,263,545,265,551,265,556,273,559,279,559,279,564,283,570,283,584,292,585,298,587,303,587"
                                 style="outline:none;" target="_self" />
                             <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Mexico', '10000')" title="Mexico"
                                 ubigeo="10000" alt="Mexico" shape="poly"
                                 coords="5,7,12,7,15,5,36,15,54,15,54,13,64,12,73,20,77,26,85,30,85,28,90,25,93,24,97,29,111,50,116,50,116,56,114,59,117,62,117,68,115,70,115,75,117,76,119,82,122,87,125,93,126,94,131,96,133,98,140,96,152,96,156,89,157,83,161,79,178,78,179,84,175,88,174,96,172,98,164,101,155,101,153,104,157,108,158,112,152,112,148,118,133,111,126,114,116,114,113,110,105,108,103,106,97,106,95,101,91,102,84,97,76,95,71,90,71,87,73,85,73,82,70,74,65,69,62,65,62,63,60,60,58,60,56,57,52,56,52,54,49,52,50,50,50,47,49,47,42,41,43,38,40,36,37,36,35,33,31,26,26,17,23,16,19,13,18,13,18,17,19,22,28,33,30,39,34,44,38,49,39,53,43,57,40,60,44,60,48,65,47,70,42,66,38,64,37,61,32,59,33,55,33,52,29,47,25,46,17,40,22,38,22,35,20,32,18,27,12,26"
                                 style="outline:none;" target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Guatemala', '10000')" title="Guatemala"
-                                ubigeo="10000" alt="Guatemala" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Guatemala', '10000')"
+                                title="Guatemala" ubigeo="10000" alt="Guatemala" shape="poly"
                                 coords="147,118,152,112,157,112,158,108,152,104,155,103,155,101,164,101,164,112,169,114,166,118,166,121,158,125,154,125,151,123"
                                 style="outline:none;" target="_self" />
                             <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Belice', '10000')" title="Belice"
                                 ubigeo="10000" alt="Belice" shape="poly"
                                 coords="164,101,171,100,172,104,170,105,171,109,167,113,164,112" style="outline:none;"
                                 target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'El Salvador', '10000')" title="El Salvador"
-                                ubigeo="10000" alt="El Salvador" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'El Salvador', '10000')"
+                                title="El Salvador" ubigeo="10000" alt="El Salvador" shape="poly"
                                 coords="165,121,169,123,174,124,174,126,171,129,164,128,159,125" style="outline:none;"
                                 target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Honduras', '10000')" title="Honduras"
-                                ubigeo="10000" alt="Honduras" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Honduras', '10000')"
+                                title="Honduras" ubigeo="10000" alt="Honduras" shape="poly"
                                 coords="169,114,184,113,186,112,193,112,197,117,195,119,190,119,188,122,186,123,182,123,181,124,179,124,178,127,176,129,173,123,169,123,166,122,166,119,168,117"
                                 style="outline:none;" target="_self" />
                             <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Cuba', '10000')" title="Cuba"
                                 ubigeo="10000" alt="Cuba" shape="poly"
                                 coords="192,72,202,68,211,68,211,69,218,70,220,72,228,72,233,77,235,77,240,80,244,80,251,86,248,87,246,88,242,89,241,87,237,87,235,89,231,88,235,86,235,84,231,84,228,83,226,78,224,78,222,79,206,75,205,73,201,73,199,74,192,78,189,76"
                                 style="outline:none;" target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Nicaragua', '10000')" title="Nicaragua"
-                                ubigeo="10000" alt="Nicaragua" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Nicaragua', '10000')"
+                                title="Nicaragua" ubigeo="10000" alt="Nicaragua" shape="poly"
                                 coords="196,116,200,121,197,132,197,138,196,141,194,141,192,140,190,141,188,140,187,139,184,140,176,132,176,130,178,128,178,126,179,125,181,124,182,123,187,123,190,120,195,119"
                                 style="outline:none;" target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Costa Rica', '10000')" title="Costa Rica"
-                                ubigeo="10000" alt="Costa Rica" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Costa Rica', '10000')"
+                                title="Costa Rica" ubigeo="10000" alt="Costa Rica" shape="poly"
                                 coords="196,141,200,147,205,151,203,152,204,158,200,159,200,157,198,157,196,155,196,153,192,151,191,149,189,150,184,148,184,146,183,145,185,143,185,140,187,139,192,141"
                                 style="outline:none;" target="_self" />
                             <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Panamá', '10000')" title="Panamá"
                                 ubigeo="10000" alt="Panamá" shape="poly"
                                 coords="220,149,224,149,233,155,232,156,237,159,231,163,229,163,227,160,228,156,224,154,221,155,217,157,216,159,218,163,215,165,208,161,208,159,204,157,205,155,203,154,203,151,204,150,210,154,217,151,220,150"
                                 style="outline:none;" target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Colombia', '10000')" title="Colombia"
-                                ubigeo="10000" alt="Colombia" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Colombia', '10000')"
+                                title="Colombia" ubigeo="10000" alt="Colombia" shape="poly"
                                 coords="269,132,269,137,265,139,259,145,258,149,257,153,262,158,264,164,269,165,273,164,278,168,284,171,287,169,291,168,290,176,288,179,292,186,289,190,292,194,288,195,286,193,285,195,279,195,278,196,277,198,280,202,278,203,275,204,279,211,279,216,278,217,278,224,276,229,274,229,273,227,273,224,274,223,274,221,273,219,267,219,266,218,263,220,258,220,258,218,256,216,253,212,249,206,246,206,242,203,240,204,235,204,234,203,233,202,228,199,223,198,224,196,226,195,227,191,230,189,233,188,235,185,233,184,233,177,232,176,234,174,233,168,231,167,231,164,234,161,234,159,237,158,237,155,241,151,244,148,244,144,246,143,251,142,252,140,263,133"
                                 style="outline:none;" target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'República Dominicana', '10000')" title="República Dominicana"
-                                ubigeo="10000" alt="República Dominicana" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'República Dominicana', '10000')"
+                                title="República Dominicana" ubigeo="10000" alt="República Dominicana" shape="poly"
                                 coords="275,88,278,92,282,93,286,98,281,98,279,98,277,98,276,97,273,99,271,97,270,100,269,102,265,102,265,101,258,100,258,99,255,99,254,101,251,99,251,97,259,96,257,95,259,94,259,91,256,90,259,87,265,89"
                                 style="outline:none;" target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Venezuela', '10000')" title="Venezuela"
-                                ubigeo="10000" alt="Venezuela" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Venezuela', '10000')"
+                                title="Venezuela" ubigeo="10000" alt="Venezuela" shape="poly"
                                 coords="318.00001525878906,144,321.00001525878906,149,326.00001525878906,150,329.00001525878906,153,336.00001525878906,158,329.00001525878906,162,328.00001525878906,163,332.00001525878906,166,326.00001525878906,170,325.00001525878906,172,331.00001525878906,175,329.00001525878906,179,327.00001525878906,181,325.00001525878906,181,324.00001525878906,183,320.00001525878906,182,318.00001525878906,183,315.00001525878906,184,310.00001525878906,182,305.00001525878906,181,309.00001525878906,184,308.00001525878906,190,315.00001525878906,191,313.00001525878906,193,311.00001525878906,196,308.00001525878906,198,303.00001525878906,201,300.00001525878906,202,296.00001525878906,201,293.00001525878906,198,291.00001525878906,192,289.00001525878906,190,292.00001525878906,186,288.00001525878906,181,288.00001525878906,177,289.00001525878906,173,291.00001525878906,171,290.00001525878906,169,288.00001525878906,169,285.00001525878906,171,282.00001525878906,170,280.00001525878906,170,276.00001525878906,165,273.00001525878906,164,269.00001525878906,165,265.00001525878906,164,263.00001525878906,162,262.00001525878906,158,260.00001525878906,156,259.00001525878906,153,257.00001525878906,153,258.00001525878906,148,261.00001525878906,143,263.00001525878906,140,266.00001525878906,139,266.00001525878906,146,265.00001525878906,149,268.00001525878906,152,271.00001525878906,147,269.00001525878906,145,269.00001525878906,143,273.00001525878906,141,275.00001525878906,139,276.00001525878906,135,280.00001525878906,139,286.00001525878906,140,288.00001525878906,143,298.00001525878906,144,304.00001525878906,148,306.00001525878906,147,309.00001525878906,144"
                                 style="outline:none;" target="_self" />
-                            <area alt="" thref="javaScript:btnOpenContentDataMap('01', 'Ecuador', '10000')" title="Ecuador"
-                                ubigeo="10000" alt="Ecuador" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Ecuador', '10000')"
+                                title="Ecuador" ubigeo="10000" alt="Ecuador" shape="poly"
                                 coords="212,237,213,236,213,233,220,233,222,235,226,233,226,227,230,226,233,225,236,224,236,221,240,220,242,219,244,216,244,213,246,212,246,207,242,203,240,204,236,204,234,203,231,200,228,199,223,198,221,200,219,201,218,203,216,207,215,211,213,211,213,220,219,220,218,224,216,226,214,228,211,229,211,236"
                                 style="outline:none;" target="_self" />
                             <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Perú', '10000')" title="Perú"
@@ -509,36 +526,31 @@
                                 ubigeo="10000" alt="Brazil" shape="poly"
                                 coords="475,235,479,238,479,245,479,252,478,256,475,260,473,262,472,265,469,268,468,268,465,269,464,272,463,276,461,279,460,281,456,282,455,286,454,289,456,296,455,301,453,305,452,310,450,315,452,320,448,322,447,326,445,330,443,332,442,335,439,337,437,339,436,340,434,340,431,340,428,340,424,341,419,340,418,340,414,343,411,346,408,348,406,349,404,350,401,354,399,357,398,360,397,365,400,372,399,375,398,376,395,377,393,378,392,381,390,386,387,391,385,394,383,397,381,399,378,402,374,403,370,400,365,397,363,394,361,391,359,391,357,393,354,390,351,388,352,384,356,379,359,376,363,370,369,368,369,361,368,358,367,358,366,357,366,349,363,348,361,347,359,347,359,343,357,341,357,338,350,337,346,336,345,334,345,322,348,315,347,311,344,306,345,302,342,301,339,301,333,301,332,297,331,295,332,290,331,287,329,285,327,284,324,283,321,282,317,278,314,278,310,278,307,276,305,273,304,270,304,268,304,265,303,262,301,261,299,261,295,263,293,264,289,265,287,266,284,267,280,267,278,268,276,268,273,268,272,266,272,259,270,260,267,262,262,262,262,259,259,259,254,250,255,248,257,245,257,240,259,236,262,234,266,233,270,232,274,230,277,228,278,226,278,223,278,219,278,217,279,215,279,211,275,206,275,205,275,203,280,203,280,201,277,198,277,196,279,195,285,195,285,194,291,193,295,201,301,202,304,201,308,199,311,197,312,195,315,194,315,191,312,191,309,191,309,188,309,187,310,186,305,181,313,184,318,184,320,182,325,182,326,181,328,180,330,178,332,176,334,175,336,182,335,184,334,185,335,190,334,193,340,197,343,196,346,195,352,193,353,192,359,193,360,191,363,190,369,193,376,192,383,181,389,190,390,194,394,195,390,202,396,206,400,205,401,211,398,214,397,216,396,218,407,210,410,209,418,212,424,214,423,220,428,219,436,220,445,222,451,222,457,225,456,229,464,234,470,235"
                                 style="outline:none;" target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Bolivia', '10000')" title="Bolivia"
-                                ubigeo="10000" alt="Bolivia" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Bolivia', '10000')"
+                                title="Bolivia" ubigeo="10000" alt="Bolivia" shape="poly"
                                 coords="297,334,303,334,309,337,310,335,320,335,320,329,322,325,323,323,327,319,331,318,339,318,345,322,346,319,347,317,348,313,347,310,345,308,344,307,344,304,343,302,341,301,338,301,333,301,332,297,331,295,331,290,331,287,329,285,327,284,324,284,323,282,321,282,320,280,317,278,315,279,311,278,309,277,307,275,305,272,304,270,304,267,304,265,304,263,303,261,301,261,298,261,295,263,292,265,289,266,282,267,279,268,284,275,283,278,282,282,281,288,280,294,279,296,281,302,277,307,281,313,285,320,283,322,286,328,287,334,290,340,293,339,296,337"
                                 style="outline:none;" target="_self" />
                             <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Chile', '10000')" title="Chile"
                                 ubigeo="10000" alt="Chile" shape="poly"
                                 coords="292,340,289,339,287,336,287,332,285,328,285,326,283,323,285,319,283,317,281,315,281,313,281,310,279,309,277,308,276,309,273,310,274,317,274,328,275,334,274,337,274,356,271,361,270,370,270,381,268,381,267,383,267,388,265,390,267,396,267,404,267,410,264,416,262,422,261,426,260,430,257,433,256,437,256,442,255,448,257,454,256,457,254,459,254,465,253,466,252,471,251,474,251,481,252,485,255,483,259,468,261,470,261,478,260,481,260,486,258,488,257,491,257,497,256,504,255,508,254,508,253,506,252,504,248,505,247,506,246,506,243,508,243,513,248,512,250,511,252,515,250,519,254,524,253,528,250,528,249,526,248,523,245,523,245,528,248,530,248,538,250,540,251,535,253,533,249,545,248,547,247,553,253,556,256,555,254,562,249,565,254,570,258,577,263,579,266,581,269,579,270,584,275,586,279,591,285,592,289,594,288,590,294,590,293,585,290,586,284,585,284,580,283,571,281,569,281,566,280,565,279,559,272,558,267,558,266,556,265,547,262,545,259,545,257,542,257,539,258,535,259,532,262,528,264,525,264,521,264,518,266,515,267,513,266,505,269,501,265,495,269,494,269,493,267,491,266,488,265,485,266,477,265,464,267,460,266,457,267,454,267,451,269,449,270,442,269,438,269,434,269,432,272,430,273,429,272,424,275,421,276,418,277,414,277,411,276,408,277,404,276,401,275,399,273,399,272,395,275,393,277,390,278,383,278,379,280,377,279,372,281,370,282,369,285,368,286,364,285,359,285,355,286,352,289,350,292,349,293,347,295,344"
                                 style="outline:none;" target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Paraguay', '10000')" title="Paraguay"
-                                ubigeo="10000" alt="Paraguay" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Paraguay', '10000')"
+                                title="Paraguay" ubigeo="10000" alt="Paraguay" shape="poly"
                                 coords="344,368,350,368,353,369,357,369,360,366,364,363,365,361,364,359,364,358,365,357,366,351,364,348,359,346,359,344,357,341,357,337,350,337,347,337,346,335,345,333,344,329,344,327,344,323,343,322,341,320,339,319,336,318,332,318,329,318,326,320,323,322,322,324,321,327,320,331,320,337,324,344,330,347,336,350,342,352,348,355,346,359,345,362,344,365"
                                 style="outline:none;" target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Uruguay', '10000')" title="Uruguay"
-                                ubigeo="10000" alt="Uruguay" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Uruguay', '10000')"
+                                title="Uruguay" ubigeo="10000" alt="Uruguay" shape="poly"
                                 coords="378,401,377,406,375,409,372,412,370,414,369,417,368,419,366,419,363,420,361,419,360,419,358,419,356,420,355,419,352,418,351,417,347,417,345,416,343,414,343,411,344,410,345,408,345,400,347,398,346,392,349,389,356,391,361,389,363,394,369,399,374,404"
                                 style="outline:none;" target="_self" />
                             <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Guayana', '10000')" title="21"
                                 ubigeo="10000" alt="21" shape="poly"
                                 coords="336,158,341,165,347,166,350,170,351,176,349,176,346,177,346,182,351,186,353,189,352,193,351,193,349,195,347,195,345,196,344,196,342,197,339,196,337,196,335,194,334,189,333,187,334,185,335,182,335,181,334,176,332,175,330,174,327,173,326,172,326,170,329,168,332,165,330,164,329,163,330,161,334,160"
                                 style="outline:none;" target="_self" />
-                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Suriname', '10000')" title="Suriname"
-                                ubigeo="10000" alt="Suriname" shape="poly"
+                            <area alt="" href="javaScript:btnOpenContentDataMap('01', 'Suriname', '10000')"
+                                title="Suriname" ubigeo="10000" alt="Suriname" shape="poly"
                                 coords="384,181,376,193,371,194,368,193,366,192,364,191,361,190,358,194,357,194,355,193,353,191,353,189,352,187,351,185,348,185,347,183,346,182,346,178,348,176,351,175,351,171,358,173,361,171,367,171"
                                 style="outline:none;" target="_self" />
                         </map>
-
-
-                        <!--                         <img class="btnOpenContentDataMap"
-                            src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/b382e89f-3db6-48b7-a950-c1290a35d415.png"
-                            style="object-fit: cover; height: 100%; cursor: pointer;"> -->
                         <div class="content-data-map shadow">
                             <div class="header">
                                 <h3 id="title-content-data-map">Perú</h3>
@@ -553,16 +565,16 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Código</th>
+                                                <th scope="col">Cód</th>
                                                 <th scope="col">País</th>
                                                 <th scope="col">Mes</th>
                                                 <th scope="col">30</th>
                                                 <th scope="col">65</th>
                                                 <th scope="col">125</th>
                                                 <th scope="col">300</th>
-                                                <th scope="col">1,000</th>
-                                                <th scope="col">50,000</th>
-                                                <th scope="col">500,000</th>
+                                                <th scope="col">1k</th>
+                                                <th scope="col">50k</th>
+                                                <th scope="col">500k</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tbdReporte"></tbody>
@@ -572,8 +584,32 @@
                         </div>
                     </div>
                 </div>
+                <!-- <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12"
+                    id="divReporte">
+                    <div class="row"><span>País</span><select id="ddlPais" class="form-control">
+                        </select></div>
+                    <div class="img-link shadow border-rounded-sm">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">País</th>
+                                    <th scope="col">Mes</th>
+                                    <th scope="col">30</th>
+                                    <th scope="col">65</th>
+                                    <th scope="col">125</th>
+                                    <th scope="col">300</th>
+                                    <th scope="col">1,000</th>
+                                    <th scope="col">50,000</th>
+                                    <th scope="col">500,000</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbdReporte2"></tbody>
+                        </table>
+                    </div>
+                </div> -->
+
             </div>
-            <!-- <a href="#evolucion-de-la-produccion">Dirigir</a> -->
         </div>
         <br />
     </section>

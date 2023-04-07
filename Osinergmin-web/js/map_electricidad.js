@@ -17,7 +17,7 @@ function returnMap() {
   $('#iframeMap').hide();
 }
 function btnOpenContentDataMap(codigo, nombre, ubigeo) {
-  $('#title-content-data-map').html(nombre);
+  //$('#title-content-data-map').html(nombre);
   $(".content-data-map").addClass("open");
   filterData(responseReporte, nombre);
 }
@@ -31,7 +31,7 @@ function filterData(data, filtro) {
     let date = new Date(filter[0].mes);
     var mes_name = date.getMonth();
     $('#fecha-content-data-map').html(meses[mes_name] + " de " + date.getFullYear());
-    $('#ciudad-content-data-map').html(filter[0].codigo);
+    //$('#ciudad-content-data-map').html(filter[0].codigo);
     filter.forEach(t => {
       $("#tbdReporte").append("<tr>" +
         "<td>" + t.codigo + "</td>" +

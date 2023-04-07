@@ -17,16 +17,21 @@ function returnMap() {
   $('#iframeMap').hide();
 }
 function btnOpenContentDataMap(codigo, nombre, ubigeo) {
-  console.log(nombre);
   $('#title-content-data-map').html(nombre);
   $(".content-data-map").addClass("open");
   filterData(responseReporte, nombre);
 }
+
 function filterData(data, filtro) {
   $("#tbdReporte").html("");
   var filter = data.filter(t => t.pais == filtro);
 
   if (filter.length > 0) {
+    let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    let date = new Date(filter[0].mes);
+    var mes_name = date.getMonth();
+    $('#fecha-content-data-map').html(meses[mes_name] + " de " + date.getFullYear());
+    $('#ciudad-content-data-map').html(filter[0].codigo);
     filter.forEach(t => {
       $("#tbdReporte").append("<tr>" +
         "<td>" + t.codigo + "</td>" +
@@ -46,9 +51,8 @@ function filterData(data, filtro) {
       "<td colspan='10'>Sin información...</td>" +
       "</tr>");
   }
-
-
 }
+
 require([
   "esri/core/urlUtils",
   "esri/Map",
@@ -233,41 +237,10 @@ require([
       view.goTo(sourceGraphics);
     }
 
-    $("#ddlPais").on('change', function (e) {
-      console.log(e.currentTarget.value);
-      if (e.currentTarget.value != "")
-        filterData(responseReporte, e.currentTarget.value);
-    });
-
-    function filterData(data, filtro) {
-      $("#tbdReporte").html("");
-      var filter = data.filter(t => t.codigo == filtro);
-      filter.forEach(t => {
-        $("#tbdReporte").append("</tr>" +
-          "<td>" + t.codigo + "</td>" +
-          "<td>" + t.pais + "</td>" +
-          "<td>" + monthNames[new Date(t.mes).getMonth()] + " - " + new Date(t.mes).getFullYear() + "</td>" +
-          "<td>" + t.unidad30.toFixed(2) + "</td>" +
-          "<td>" + t.unidad65.toFixed(2) + "</td>" +
-          "<td>" + t.unidad125.toFixed(2) + "</td>" +
-          "<td>" + t.unidad300.toFixed(2) + "</td>" +
-          "<td>" + t.unidad1000.toFixed(2) + "</td>" +
-          "<td>" + t.unidad50000.toFixed(2) + "</td>" +
-          "<td>" + t.unidad500000.toFixed(2) + "</td>" +
-          "</tr>");
-      });
-    }
-
     fetch("https://gisem.osinergmin.gob.pe/validar/observatorio3/apiObservatorio/api")
       .then((response) => response.json())
       .then((response) => {
-        //console.log(response.data);
         responseReporte = response.data;
-        $("#ddlPais").html("<option value=''>Seleccione</option>");
-        responseReporte.forEach(t => {
-          $("#ddlPais").append("<option value=" + t.codigo + ">" + t.pais + "</option>");
-        });
-        filterData(responseReporte, "PE");
       });
   });
 });

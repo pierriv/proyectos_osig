@@ -85,7 +85,12 @@
         }
 
         table thead {
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: var(--color-yellow-primary);
+            color: white;
+        }
+
+        table thead tr th {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         th,
@@ -553,7 +558,31 @@
                         </map>
                         <div class="content-data-map shadow">
                             <div class="header">
-                                <h3 id="title-content-data-map">Perú</h3>
+                                <h3 id="title-content-data-map" style="color: var(--color-yellow-primary)">Perú</h3>
+                                <p id="compania-content-data-map">Enel Distribución</p>
+                                <br>
+                                <table class="" style="text-align: left; border: 0;">
+                                    <tbody>
+                                        <tr>
+                                            <td width="100" style="padding-left: 0;"><b>Ciudad:</b></td>
+                                            <td id="ciudad-content-data-map">Lima Norte</td>
+                                            <td id="regulacion-content-data-map">Regulación electrica.gob.pe</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100" style="padding-left: 0;"><b>TC (Gs/US$):</b></td>
+                                            <td id="tc-content-data-map">7,238</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100" style="padding-left: 0;"><b>Fecha:</b></td>
+                                            <td id="fecha-content-data-map">Dic-2022</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <a class="btn-close-content-data-map">
                                     <span class="material-symbols-rounded">
                                         expand_more
@@ -564,6 +593,9 @@
                                 <div class="img-link shadow border-rounded-sm">
                                     <table class="table table-striped">
                                         <thead>
+                                            <tr>
+                                                <th scope="col" colspan="10">Consumo Mensual (kW.h)</th>
+                                            </tr>
                                             <tr>
                                                 <th scope="col">Cód</th>
                                                 <th scope="col">País</th>

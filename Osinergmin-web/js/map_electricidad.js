@@ -237,7 +237,7 @@ require([
       view.goTo(sourceGraphics);
     }
 
-    fetch("https://gisem.osinergmin.gob.pe/validar/observatorio3/apiObservatorio/api")
+    fetch("https://gisem.osinergmin.gob.pe/validar/observatorioAPI/api/api")
       .then((response) => response.json())
       .then((response) => {
         responseReporte = response.data;

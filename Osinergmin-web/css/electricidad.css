@@ -1,0 +1,151 @@
+.mapify-holder {
+    width: 80%;
+    z-index: 0;
+}
+
+.mapify-hover {
+    fill: #33a3dc;
+}
+
+.content-data-map {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-height: 50%;
+    padding: 20px;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 0.3s;
+}
+
+.content-data-map.open {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: 0.3s;
+}
+
+.content-data-map .header {
+    width: 100%;
+}
+
+.content-data-map .header a {
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+}
+
+.content-data-map .header a span {
+    font-size: 25px !important;
+    font-weight: bolder !important;
+    border-radius: 28px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.content-data-map .header a span:hover {
+    font-size: 25px !important;
+    font-weight: bolder !important;
+    border-radius: 28px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.content-data-map .body {
+    width: 100%;
+    max-height: 90%;
+    overflow: auto;
+}
+
+table {
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-spacing: 0;
+    transition: 0.2s;
+}
+
+table thead {
+    background-color: var(--color-yellow-primary);
+    color: white;
+}
+
+table thead tr th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    padding: 8px;
+}
+
+@media (min-width: 1024px) {
+    .group-btn-left {
+        height: 0px;
+        position: sticky;
+        top: 25px;
+        margin-top: 10px;
+        margin-left: -90px;
+        width: 100px;
+        z-index: 9;
+    }
+
+    .group-btn-left button {
+        border-radius: 50%;
+        padding: 0px;
+        /* font-size: 0px; */
+        width: auto;
+        width: 65px;
+        height: 65px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .group-btn-left button:nth-child(1) {
+        margin-top: 10px;
+    }
+
+    .group-btn-left button span {
+        font-size: 30px;
+    }
+
+    .group-btn-left button .btn-tooltip {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        left: 80%;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 12px 15px;
+        background-color: #3b3b3b;
+        border-radius: 28px;
+        color: white;
+        width: 250px;
+        margin-left: 10px;
+    }
+
+    .group-btn-left button .btn-tooltip::after {
+        content: "";
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-left: 15px solid transparent;
+        border-top: 15px solid #3b3b3b;
+        height: 0;
+        position: absolute;
+        left: -22px;
+        top: 50%;
+        width: 0;
+        transform: rotate(90deg) translateX(-50%);
+        transition: 1s;
+    }
+
+    .group-btn-left button:hover .btn-tooltip {
+        visibility: inherit;
+        opacity: 1;
+        left: 100%;
+    }
+
+
+}

@@ -160,6 +160,11 @@ require([
       }
     });
 
+    $("#btnMapaInicial").click(function () {
+      $('#divBotonMapaInicial').hide();
+      $('#divMapaInicial').hide();
+    });
+
     $("#dynamicClassChange").click(function () {
       $(this).attr("data-hover-class", "hover-green");
     });

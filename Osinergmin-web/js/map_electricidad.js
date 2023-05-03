@@ -160,8 +160,8 @@ require([
       }
     });
 
-    $("#btnMapaInicial").click(function () {
-      $('#divBotonMapaInicial').hide();
+    $("#divMapaInicial").click(function () {
+      //$('#divBotonMapaInicial').hide();
       $('#divMapaInicial').hide();
     });
 

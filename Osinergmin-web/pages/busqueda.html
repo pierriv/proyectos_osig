@@ -12,10 +12,7 @@
     <link rel="shortcut icon" href="../images/icons/osinerg.ico" type="image/vnd.microsoft.icon" id="favicon" />
     <title>Glosario | Osinergmin</title>
 </head>
-
 <body>
-
-
     <header>
         <div class="content">
             <div class="stripe">
@@ -57,7 +54,7 @@
                         <div class="form-input">
                             <input type="text" name="txtCriterio" id="txtCriterio" placeholder="Buscar" value=''>
                         </div>
-                        <a href="#">Limpiar busqueda</a>
+                        <a id="aLimpiarBusqueda" href="#">Limpiar busqueda</a>
                         <br><br><br>
                         <h2 class="title-subsection">
                             Filtros
@@ -75,23 +72,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <div> Sector 2</div>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <input type="checkbox" name="txtFiltros" id="filtro-hidrocarburo-liquido2">
-                                        <label for="filtro-hidrocarburo-liquido2">Hidrocarburos liquidos 2</label>
-                                    </li>
-                                    <li><input type="checkbox" name="txtFiltros" id="filtro-gas-natural2">
-                                        <label for="filtro-gas-natural2">Gas natural 2</label>
-                                    </li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                 </div>
-                <div class="grid-container xlg-9 lg-9 md-12 sm-12">
-                    <div class="section shadow border-rounded-sm bg-white grid-container xlg-12 lg-12 md-6 sm-12">
+                <div class="grid-container xlg-9 lg-9 md-12 sm-12" id="divBuscador">
+                    <!-- <div class="section shadow border-rounded-sm bg-white grid-container xlg-12 lg-12 md-6 sm-12">
                         <div class="content-bgimg xlg-5 lg-4 md-12 sm-12 rows-5"
                             style="background-image: url('https://gisem.osinergmin.gob.pe/validar/monitoreo/images/b382e89f-3db6-48b7-a950-c1290a35d415.png');">
                         </div>
@@ -204,7 +189,7 @@
                                 <span>Tipos de acceso:</span> Privado
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -221,14 +206,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
         integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="../js/events.js"></script>
-    <script>
-        $(document).ready(function () {
-            let params = new URLSearchParams(location.search);
-            var contract = params.get('txtSearch');
-            $('#txtCriterio').val(contract);
-        });
-    </script>
-
+    
+    <script src="../js/config_busqueda.js"></script>
+    <script src="../js/busqueda.js"></script>
 </body>
 
 </html>

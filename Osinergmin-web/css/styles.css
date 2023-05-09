@@ -475,8 +475,8 @@ header .header-logo {
     border: 0;
     cursor: pointer;
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 5px;
+    top: 5px;
 }
 
 .img-link>a>button {
@@ -500,6 +500,19 @@ header .header-logo {
     padding: 0px;
     width: 60px;
     height: 60px;
+    border: 0;
+}
+
+.img-link>a>button.btn-icon-excel {
+    color: white;
+    cursor: pointer;
+    background-color: rgb(54, 148, 0);
+    border-radius: 28px;
+    box-shadow: 0 3px 4px 0 rgb(0 0 0 / 50%);
+    font-weight: bolder;
+    padding: 0px;
+    width: 40px;
+    height: 40px;
     border: 0;
 }
 

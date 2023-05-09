@@ -236,3 +236,11 @@
     grid-row:span 6;
 }
 
+
+
+
+@media (max-width: 1400px) {
+    .grid-container{
+        grid-gap: 10px;
+    }
+}

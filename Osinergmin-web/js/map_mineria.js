@@ -119,6 +119,9 @@ require([
           //  var sourceGraphics = results.features.map(e => { return e.geometry });
           //  view.goTo(sourceGraphics);
           //}
-
+          $("#divMapaInicial").click(function () {
+            //$('#divBotonMapaInicial').hide();
+            $('#divMapaInicial').hide();
+          });
         });
     });

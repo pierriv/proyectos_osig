@@ -887,21 +887,14 @@ header .header-logo {
     font-weight: bolder;
 }
 
+
 /* INDEX TITLE */
 
-@media (min-width: 1600px) {
-    .title-index{
-        display: none !important;
-    }
-
-    .simple-target{
-        aspect-ratio: 1.5/1;
-    }
-}
-
-
 @media (max-width: 1600px) {
-    
+    .btn-mapa-energetico{
+        max-width: 120px;
+        text-align: left;
+    }
 }
 
 @media (max-width: 1400px) {
@@ -911,6 +904,13 @@ header .header-logo {
 
     .title-index-full{
         font-size: 1.7rem !important;
+    }
+
+    .btn-mapa-energetico{
+        padding: 10px !important;
+        font-size: 12px;
+        max-width: 120px;
+        text-align: left;
     }
 
     /* SIMPLE TARGET */
@@ -936,18 +936,41 @@ header .header-logo {
     }
 }
 
-/* FIN INDEX TITLE */
+@media (max-width: 1024px) {
+    .title-index-full{
+        display: none !important;
+    }
+    .btn-mapa-energetico{
+        padding: 10px !important;
+        font-size: 10px;
+    }
+    .content {
+        width: 90%;
+    }
+}
+
+
 @media (min-width: 1024px) {
     .title-index{
         display: none !important;
     }
 }
 
-@media (max-width: 1024px) {
-    .title-index-full{
-        display: none !important;
-    }
-    .content {
-        width: 90%;
+@media (min-width: 1400px) {
+    .btn-mapa-energetico{
+        padding: 10px !important;
+        font-size: 13px;
     }
 }
+
+@media (min-width: 1600px) {
+    .title-index{
+        display: none !important;
+    }
+
+    .simple-target{
+        aspect-ratio: 1.5/1;
+    }
+}
+
+/* FIN INDEX TITLE */

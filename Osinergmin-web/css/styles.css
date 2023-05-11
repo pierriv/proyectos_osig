@@ -901,14 +901,16 @@ header .header-logo {
 
 
 @media (max-width: 1600px) {
-    .title-index-full{
-        display: none !important;
-    }
+    
 }
 
 @media (max-width: 1400px) {
     .title-index{
         font-size: 1.5rem !important;
+    }
+
+    .title-index-full{
+        font-size: 1.7rem !important;
     }
 
     /* SIMPLE TARGET */
@@ -935,8 +937,16 @@ header .header-logo {
 }
 
 /* FIN INDEX TITLE */
+@media (min-width: 1024px) {
+    .title-index{
+        display: none !important;
+    }
+}
 
 @media (max-width: 1024px) {
+    .title-index-full{
+        display: none !important;
+    }
     .content {
         width: 90%;
     }

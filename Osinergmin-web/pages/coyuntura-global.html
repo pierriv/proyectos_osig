@@ -35,10 +35,10 @@
             </div>
             <div class="header-logo">
                 <form action="busqueda.html" method="GET" class="search">
-                    <input type="text" class="txt" name="txtSearch"
+                    <input type="text" class="txt" name="txtSearch" id="txtSearch"
                         placeholder="¿Deseas saber sobre algún tema del sector energético-minero?">
                     <a class="btn" href="#" type="submit">
-                        <span class="material-symbols-rounded">
+                        <span id="btnSearch" class="material-symbols-rounded">
                             search
                         </span>
                     </a>
@@ -94,19 +94,22 @@
                         <h2 class="title-section">Eventos meteorológicos y sísmicos</h2>
                         <br />
                         <h3 class="title-subsection">Mapas de calor del mundo</h3>
-                        <!-- <div class="img-link" style="position: relative;aspect-ratio: 1/0.78;">
+                        <div class="img-link" style="position: relative;aspect-ratio: 1/1.18;">
                             <iframe allowfullscreen sandbox="allow-scripts allow-popups allow-same-origin allow-forms" 
                             name="sandbox" id="inlineFrameExample" frameborder="0" style="width: 100%; height: 100%;"
-                                src="https://www.meteoblue.com/es/tiempo/mapas/lima_per%c3%ba_3936456#coords=1.73/-2.3/42.8&map=temperature~daily-max~auto~2%20m%20above%20gnd~none">
+                                src="https://earth.nullschool.net/#2014/09/11/0000Z/wind/surface/level/overlay=temp/patterson=0.00,0.00,319">
                             </iframe>
-                        </div> -->
-                        <div class="img-link">
+                            <a target="_blank" href="https://earth.nullschool.net/#2014/09/11/0000Z/wind/surface/level/overlay=temp/patterson=0.00,0.00,319">
+                                <button>Ver más ></button>
+                            </a>
+                        </div>
+                        <!-- <div class="img-link">
                             <img src="../images/mapa_metereologico.JPG"
                                 alt="">
                             <a target="_blank" href="https://www.meteoblue.com/es/tiempo/mapas/lima_per%c3%ba_3936456#coords=1.73/-2.3/42.8&map=temperature~daily-max~auto~2%20m%20above%20gnd~none">
                                 <button>Ver más ></button>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="grid-container xlg-6 lg-12 md-12 sm-12">
@@ -179,7 +182,7 @@
                 <div class="target-stadistic xlg-6 lg-6 md-12 sm-12" id="divCrecimiento">
                     <h3 class="title-subsection">Tasa de crecimiento del PBI del mundo y por regiones</h3>
                     <div class="img-link shadow border-rounded-sm">
-                        <div class="img-link" style="position: relative;aspect-ratio: 1/0.68;">
+                        <div class="img-link" style="position: relative;aspect-ratio: 1/0.60;">
                             <iframe allowfullscreen sandbox="allow-scripts allow-popups allow-same-origin allow-forms" 
                             name="sandbox" id="inlineFrameExample" frameborder="0" style="width: 100%; height: 100%;"
                             src="https://app.powerbi.com/view?r=eyJrIjoiYjI0N2M2ZGQtOTNlNi00ODU5LTk3NzMtN2NkZTgwY2JlZDhkIiwidCI6IjlhNzRmMTA0LThjMGUtNDRlNy1hMTFlLWU0ZGMwMzAxZTIzYyIsImMiOjR9"></iframe>

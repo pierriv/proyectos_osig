@@ -41,6 +41,11 @@ $(document).ready(function () {
         }, 300);
     });
 
+    $("#btnSearch").on("click", function () {
+        var txt = $("#txtSearch").val();
+        location.href = "https://gisem.osinergmin.gob.pe/validar/observatorio3/pages/busqueda.html?txtSearch="+txt;
+    });
+
     window.addEventListener("click", function (e) {
         /* if(e.target == document.querySelectorAll(".modal")[0]){ */
         if (e.target.id.includes("modal")) {

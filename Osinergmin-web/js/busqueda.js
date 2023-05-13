@@ -7,6 +7,7 @@ $(document).ready(function () {
     var contenidoTemporal = contenidos.filter(t => t.titulo.toLowerCase().includes(contract.toLowerCase()));
     filtrarDatos(contenidoTemporal);
   }  
+  else filtrarDatos(contenidos);
 
   $("#aLimpiarBusqueda").click(function () {
     filtrarDatos(contenidos);
@@ -63,7 +64,7 @@ $(document).ready(function () {
                 "<div class='content-bgimg xlg-5 lg-4 md-12 sm-12 rows-5' style='background-image: url("+t.url+");'>"+
                 "</div>"+
                 "<div class='xlg-7 lg-8 md-12 sm-12'>"+
-                    "<h2 class='title-subsection'><a href='"+t.href+"'>"+t.titulo+"</a></h2>"+
+                    "<h2 class='title-subsection'><a class='color-blue-secondary' href='"+t.href+"'>"+t.titulo+"</a></h2>"+
                 "</div>"+
                 //"<div class='xlg-7 lg-8 md-12 sm-12'><span>Descripción:</span>"+t.descripcion+"</div>"+
                 "<div class='xlg-7 lg-8 md-12 sm-12'><span>Fuente:</span>"+t.fuente+"</div>"+
@@ -89,7 +90,7 @@ $(document).ready(function () {
                 "<div class='content-bgimg xlg-5 lg-4 md-12 sm-12 rows-5' style='background-image: url("+t.url+");'>"+
                 "</div>"+
                 "<div class='xlg-7 lg-8 md-12 sm-12'>"+
-                    "<h2 class='title-subsection'><a href='"+t.href+"'>"+t.titulo+"</a></h2>"+
+                    "<h2 class='title-subsection'><a class='color-blue-secondary' href='"+t.href+"'>"+t.titulo+"</a></h2>"+
                 "</div>"+
                 //"<div class='xlg-7 lg-8 md-12 sm-12'><span>Descripción:</span>"+t.descripcion+"</div>"+
                 "<div class='xlg-7 lg-8 md-12 sm-12'><span>Fuente:</span>"+t.fuente+"</div>"+

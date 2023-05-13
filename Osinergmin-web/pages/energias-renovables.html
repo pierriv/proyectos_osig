@@ -37,10 +37,10 @@
             </div>
             <div class="header-logo">
                 <form action="busqueda.html" method="GET" class="search">
-                    <input type="text" class="txt" name="txtSearch"
+                    <input type="text" class="txt" name="txtSearch" id="txtSearch"
                         placeholder="¿Deseas saber sobre algún tema del sector energético-minero?">
                     <a class="btn" href="#" type="submit">
-                        <span class="material-symbols-rounded">
+                        <span id="btnSearch" class="material-symbols-rounded">
                             search
                         </span>
                     </a>
@@ -119,7 +119,6 @@
             <div class="grid-container xlg-12 lg-12 md-12 sm-12">
                 <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12" id="divDistribucion">
                     <h3 class="title-subsection">Distribución de las tecnologías de RER por regiones</h3>
-                    <br>
                     <div class="img-link shadow border-rounded-sm">
                         <div class="img-link" style="position: relative;aspect-ratio: 1/0.60;">
                             <iframe allowfullscreen sandbox="allow-scripts allow-popups allow-same-origin allow-forms" 
@@ -135,15 +134,17 @@
                 </div>
                 <div class="target-stadistic section shadow border-rounded-md bg-white xlg-6 lg-6 md-12 sm-12" id="divCostos">
                     <h3 class="title-subsection">Los costos de instalación y de generación por tecnología.</h3>
-                    <br>
                     <div class="img-link shadow border-rounded-sm">
-                        <img src="https://gisem.osinergmin.gob.pe/validar/monitoreo/images/60ca113c-d8ff-4c79-a06b-cc4b5667d283.png"
-                            alt="">
-                        <a href="">
-                            <button class="btn-icon">
-                                <img src="../images/icons/excel.png" alt="">
-                            </button>
-                        </a>
+                        <div class="img-link" style="position: relative;aspect-ratio: 1/0.60;">
+                            <iframe allowfullscreen sandbox="allow-scripts allow-popups allow-same-origin allow-forms" 
+                            name="sandbox" id="inlineFrameExample" frameborder="0" style="width: 100%; height: 100%;"
+                            src="https://app.powerbi.com/view?r=eyJrIjoiMzFmMmFhN2EtM2YxNS00MGViLWE4MGEtOTAwZjJhNDY2NGE4IiwidCI6IjlhNzRmMTA0LThjMGUtNDRlNy1hMTFlLWU0ZGMwMzAxZTIzYyIsImMiOjR9"></iframe>
+                            <!-- <a target="_blank" href="https://gisem.osinergmin.gob.pe/monitoreo/files/MG21-Distribuci%C3%B3n%20RE.xlsx">
+                                <button class="btn-icon-excel">
+                                    <img src="../images/icons/excel1.png" alt="">
+                                </button>
+                            </a> -->
+                        </div>
                     </div>
                 </div>
 

@@ -469,6 +469,7 @@ header .header-logo {
 
 .img-link {
     position: relative;
+    margin-bottom: -25px;
 }
 
 .img-link>a {

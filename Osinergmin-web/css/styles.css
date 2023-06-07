@@ -472,13 +472,22 @@ header .header-logo {
     margin-bottom: -25px;
 }
 
-.img-link>a {
+.img-link>a.btn-rigth {
     border: 0;
     cursor: pointer;
     position: absolute;
     right: 5px;
     top: 5px;
 }
+
+.img-link>a.btn-left {
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
 
 .img-link>a>button {
     color: rgba(0, 0, 0, 0.6);

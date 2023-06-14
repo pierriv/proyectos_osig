@@ -88,3 +88,9 @@
 .modal-xl{
     max-width: 1140px;
 }
+
+.modal-contenedor{
+    width: 95% !important;
+    height: 100% !important;
+    max-width: none !important;
+}

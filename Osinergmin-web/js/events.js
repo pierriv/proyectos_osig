@@ -39,11 +39,19 @@ $(document).ready(function () {
         setTimeout(function () {
             $("#" + idModal).toggleClass("open-modal");
         }, 300);
+        var b = $("#iframeContenedor");
+        if (b.length > 0){
+            $("#iframeContenedor").attr("src", "");
+        }
     });
 
     $("#btnSearch").on("click", function () {
         var txt = $("#txtSearch").val();
         location.href = "https://gisem.osinergmin.gob.pe/validar/observatorio3/pages/busqueda.html?txtSearch="+txt;
+    });
+    $(".btn-modal-contenedor").on("click", function (e) {
+        var url = $(e.currentTarget).parent().children('iframe').attr('src');
+        $("#iframeContenedor").attr("src", url);
     });
 
     window.addEventListener("click", function (e) {
@@ -73,39 +81,29 @@ $(document).ready(function () {
     let isDown = false;
     let startX;
     let scrollLeft;
+    if (slider != null) {
+        slider.addEventListener('mousedown', (e) => {
 
-    slider.addEventListener('mousedown', (e) => {
-
-        isDown = true;
-        slider.classList.add('active');
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
-    slider.addEventListener('mouseleave', () => {
-        isDown = false;
-        slider.classList.remove('active');
-    });
-    slider.addEventListener('mouseup', () => {
-        isDown = false;
-        slider.classList.remove('active');
-    });
-    slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 3; //scroll-fast
-        slider.scrollLeft = scrollLeft - walk;
-        console.log(walk);
-    });
-
-    $(".btn-modal-contenedor").on("click", function (e) {
-        console.log(e);
-        console.log($(e.currentTarget));
-        console.log($(e.currentTarget).parent());
-        console.log($(e.currentTarget).parent().children('iframe'));
-        console.log($("#iframeContenedor"));
-        var url = $(e.currentTarget).parent().children('iframe').attr('src');
-        $("#iframeContenedor").attr("src", url);
-    });
-
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 3; //scroll-fast
+            slider.scrollLeft = scrollLeft - walk;
+            console.log(walk);
+        });
+    }
 });

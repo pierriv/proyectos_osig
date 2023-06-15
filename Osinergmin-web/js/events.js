@@ -98,4 +98,14 @@ $(document).ready(function () {
         console.log(walk);
     });
 
+    $(".btn-modal-contenedor").on("click", function (e) {
+        console.log(e);
+        console.log($(e.currentTarget));
+        console.log($(e.currentTarget).parent());
+        console.log($(e.currentTarget).parent().children('iframe'));
+        console.log($("#iframeContenedor"));
+        var url = $(e.currentTarget).parent().children('iframe').attr('src');
+        $("#iframeContenedor").attr("src", url);
+    });
+
 });
